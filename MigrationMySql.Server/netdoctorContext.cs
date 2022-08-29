@@ -191,10 +191,6 @@ namespace MigrationMySql.Server
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer(@"server=notebook-dell\\sqlexpress;database=netdoctor;trusted_connection=true;");
-            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -208,12 +204,12 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.AprCodi)
                     .HasMaxLength(4)
                     .HasColumnName("APR_CODI")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.AprDesc)
                     .HasMaxLength(60)
                     .HasColumnName("APR_DESC")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.AprFlag).HasColumnName("APR_FLAG");
 
@@ -231,12 +227,12 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.MedCodi)
                     .HasMaxLength(5)
                     .HasColumnName("MED_CODI")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.MedDesc)
                     .HasMaxLength(40)
                     .HasColumnName("MED_DESC")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.MedFlag).HasColumnName("MED_FLAG");
 
@@ -252,10 +248,10 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.PreApre)
                     .HasMaxLength(4)
                     .HasColumnName("PRE_APRE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PreData)
-                    .HasColumnType("smalldatetime")
+                    .HasColumnType("datetime")
                     .HasColumnName("PRE_DATA");
 
                 entity.Property(e => e.PreEdis).HasColumnName("PRE_EDIS");
@@ -277,31 +273,31 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.PreExce)
                     .HasMaxLength(1)
                     .HasColumnName("PRE_EXCE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PreFlag).HasColumnName("PRE_FLAG");
 
                 entity.Property(e => e.PreGene)
                     .HasMaxLength(1)
                     .HasColumnName("PRE_GENE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PreIpi).HasColumnName("PRE_IPI");
 
                 entity.Property(e => e.PreLabo)
                     .HasMaxLength(3)
                     .HasColumnName("PRE_LABO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PreMedi)
                     .HasMaxLength(5)
                     .HasColumnName("PRE_MEDI")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PrePort)
                     .HasMaxLength(1)
                     .HasColumnName("PRE_PORT")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PrePrec).HasColumnName("PRE_PREC");
 
@@ -320,7 +316,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.PreTipo)
                     .HasMaxLength(3)
                     .HasColumnName("PRE_TIPO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Abaprem>(entity =>
@@ -332,10 +328,10 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.PreApre)
                     .HasMaxLength(4)
                     .HasColumnName("PRE_APRE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PreData)
-                    .HasColumnType("smalldatetime")
+                    .HasColumnType("datetime")
                     .HasColumnName("PRE_DATA");
 
                 entity.Property(e => e.PreEdis).HasColumnName("PRE_EDIS");
@@ -355,31 +351,31 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.PreExce)
                     .HasMaxLength(1)
                     .HasColumnName("PRE_EXCE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PreFlag).HasColumnName("PRE_FLAG");
 
                 entity.Property(e => e.PreGene)
                     .HasMaxLength(1)
                     .HasColumnName("PRE_GENE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PreIpi).HasColumnName("PRE_IPI");
 
                 entity.Property(e => e.PreLabo)
                     .HasMaxLength(3)
                     .HasColumnName("PRE_LABO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PreMedi)
                     .HasMaxLength(5)
                     .HasColumnName("PRE_MEDI")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PrePort)
                     .HasMaxLength(1)
                     .HasColumnName("PRE_PORT")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PrePrec).HasColumnName("PRE_PREC");
 
@@ -398,7 +394,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.PreTipo)
                     .HasMaxLength(3)
                     .HasColumnName("PRE_TIPO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<AjusteEstoque>(entity =>
@@ -466,11 +462,11 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Codigo)
                     .HasMaxLength(10)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Descricao)
                     .HasMaxLength(500)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Anamnese>(entity =>
@@ -486,22 +482,22 @@ namespace MigrationMySql.Server
                     .HasColumnName("cid10");
 
                 entity.Property(e => e.Codigonet)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("codigonet");
 
                 entity.Property(e => e.Data).HasColumnType("datetime");
 
                 entity.Property(e => e.FlagSigiloso)
                     .HasColumnName("flag_sigiloso")
-                    .HasDefaultValueSql("((0))");
+                    ;
 
                 entity.Property(e => e.Historico)
-                    .HasColumnType("ntext")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .HasColumnType("longtext")
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ResultExames)
-                    .HasColumnType("ntext")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .HasColumnType("longtext")
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Statusnet).HasColumnName("statusnet");
 
@@ -580,7 +576,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(10)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Paciente).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.Paciente).HasColumnType("float(10, 2)");
 
                 entity.Property(e => e.Para)
                     .HasMaxLength(10)
@@ -631,7 +627,7 @@ namespace MigrationMySql.Server
                 entity.ToTable("atualizacao");
 
                 entity.Property(e => e.Codigo)
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("codigo");
 
                 entity.Property(e => e.Datafim)
@@ -647,7 +643,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Unidade)
                     .HasMaxLength(5)
                     .HasColumnName("unidade")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Cadmed>(entity =>
@@ -663,7 +659,7 @@ namespace MigrationMySql.Server
                     .HasColumnName("COD MED");
 
                 entity.Property(e => e.Codigo)
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("codigo");
 
                 entity.Property(e => e.Crm).HasColumnName("CRM");
@@ -699,7 +695,7 @@ namespace MigrationMySql.Server
                     .HasColumnName("MEDIC");
 
                 entity.Property(e => e.MédRelatUnimed)
-                    .HasColumnType("ntext")
+                    .HasColumnType("longtext")
                     .HasColumnName("MÉD RELAT UNIMED");
 
                 entity.Property(e => e.Médico)
@@ -715,7 +711,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.SiglaMed)
                     .HasMaxLength(50)
                     .HasColumnName("SIGLA MED")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Category>(entity =>
@@ -724,14 +720,13 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.CategoryName)
                     .HasMaxLength(15)
-                    .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Description)
                     .HasColumnType("text")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Picture).HasColumnType("image");
+                entity.Property(e => e.Picture).HasColumnType("blob");
             });
 
             modelBuilder.Entity<CcCliente>(entity =>
@@ -743,7 +738,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Atualiza).HasColumnName("atualiza");
 
                 entity.Property(e => e.Codigo)
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("codigo");
 
                 entity.Property(e => e.Conta)
@@ -759,12 +754,12 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Observacao)
                     .HasMaxLength(100)
                     .HasColumnName("observacao")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Operador)
                     .HasMaxLength(20)
                     .HasColumnName("operador")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Rowguid).HasColumnName("rowguid");
 
@@ -784,12 +779,12 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Codigo)
                     .HasMaxLength(255)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Descricao)
                     .HasMaxLength(255)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Flativo).HasColumnName("flativo");
             });
@@ -803,26 +798,26 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Cat)
                     .HasMaxLength(13)
                     .HasColumnName("CAT")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Data)
-                    .HasColumnType("smalldatetime")
+                    .HasColumnType("datetime")
                     .HasColumnName("DATA");
 
                 entity.Property(e => e.Fone)
                     .HasMaxLength(13)
                     .HasColumnName("FONE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Hora)
                     .HasMaxLength(5)
                     .HasColumnName("HORA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Nome)
                     .HasMaxLength(30)
                     .HasColumnName("NOME")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Contratado>(entity =>
@@ -836,34 +831,34 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Cnes)
                     .HasMaxLength(10)
                     .HasColumnName("cnes")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codigo)
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("codigo");
 
                 entity.Property(e => e.Codigonoconvenio)
                     .HasMaxLength(50)
                     .HasColumnName("codigonoconvenio")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Convenio).HasColumnName("convenio");
 
                 entity.Property(e => e.Faturaclinica)
                     .HasColumnName("faturaclinica")
-                    .HasDefaultValueSql("((0))");
+                    ;
 
                 entity.Property(e => e.Flinterno).HasColumnName("flinterno");
 
                 entity.Property(e => e.Nome)
                     .HasMaxLength(200)
                     .HasColumnName("nome")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Unidade)
                     .HasMaxLength(100)
                     .HasColumnName("unidade")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<ControleConsultorio>(entity =>
@@ -875,136 +870,136 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Anestesista)
                     .HasMaxLength(50)
                     .HasColumnName("ANESTESISTA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Autoriz)
                     .HasMaxLength(20)
                     .HasColumnName("AUTORIZ")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.CodJustif)
                     .HasMaxLength(50)
                     .HasColumnName("COD JUSTIF")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.CodUsuDep)
                     .HasMaxLength(2)
                     .HasColumnName("COD USU DEP")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.CodUsuDig)
                     .HasMaxLength(2)
                     .HasColumnName("COD USU DIG")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Convenio)
                     .HasMaxLength(255)
                     .HasColumnName("CONVENIO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.CódProced)
                     .HasMaxLength(50)
                     .HasColumnName("CÓD PROCED")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Data)
-                    .HasColumnType("smalldatetime")
+                    .HasColumnType("datetime")
                     .HasColumnName("DATA");
 
                 entity.Property(e => e.DataLançam)
-                    .HasColumnType("smalldatetime")
+                    .HasColumnType("datetime")
                     .HasColumnName("DATA LANÇAM");
 
                 entity.Property(e => e.DataUnimed)
                     .HasMaxLength(50)
                     .HasColumnName("DATA UNIMED")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.DtAutoriz)
-                    .HasColumnType("smalldatetime")
+                    .HasColumnType("datetime")
                     .HasColumnName("DT AUTORIZ");
 
                 entity.Property(e => e.DtEmissGuia)
                     .HasMaxLength(50)
                     .HasColumnName("DT EMISS GUIA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.FormaPgto)
                     .HasMaxLength(255)
                     .HasColumnName("FORMA PGTO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.GuiaPrincipal)
                     .HasMaxLength(50)
                     .HasColumnName("GUIA PRINCIPAL")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Idade).HasColumnName("IDADE");
 
                 entity.Property(e => e.Interc)
                     .HasMaxLength(50)
                     .HasColumnName("INTERC")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Lote)
                     .HasMaxLength(50)
                     .HasColumnName("LOTE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Matricula)
                     .HasMaxLength(50)
                     .HasColumnName("MATRICULA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Mes)
                     .HasMaxLength(4)
                     .HasColumnName("MES")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.MédSolicitante)
                     .HasMaxLength(6)
                     .HasColumnName("MÉD SOLICITANTE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.NGuia)
                     .HasMaxLength(255)
                     .HasColumnName("N GUIA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.NRec)
                     .HasMaxLength(50)
                     .HasColumnName("N_REC")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.NTitular)
                     .HasMaxLength(255)
                     .HasColumnName("N TITULAR")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Num)
                     .HasMaxLength(255)
                     .HasColumnName("NUM")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Obs)
                     .HasMaxLength(50)
                     .HasColumnName("OBS:")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Olho)
                     .HasMaxLength(255)
                     .HasColumnName("OLHO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Paciente)
                     .HasMaxLength(40)
                     .HasColumnName("PACIENTE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Plano)
                     .HasMaxLength(50)
                     .HasColumnName("PLANO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Qtde).HasColumnName("QTDE");
 
@@ -1013,17 +1008,17 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.SiglaMéd)
                     .HasMaxLength(255)
                     .HasColumnName("SIGLA MÉD")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.SiglaProced)
                     .HasMaxLength(255)
                     .HasColumnName("SIGLA PROCED")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.UnimPac)
                     .HasMaxLength(50)
                     .HasColumnName("UNIM PAC")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.UnimedFilme).HasColumnName("UNIMED FILME");
 
@@ -1032,7 +1027,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.ValidCart)
                     .HasMaxLength(50)
                     .HasColumnName("VALID CART")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ValorAnest).HasColumnName("VALOR ANEST");
 
@@ -1048,17 +1043,17 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.PEntrada)
                     .HasMaxLength(255)
                     .HasColumnName("P_Entrada")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PSaida)
                     .HasMaxLength(255)
                     .HasColumnName("P_Saida")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Rowguid).HasColumnName("rowguid");
 
                 entity.Property(e => e.TAtua)
-                    .HasColumnType("smalldatetime")
+                    .HasColumnType("datetime")
                     .HasColumnName("T_Atua");
             });
 
@@ -1078,15 +1073,15 @@ namespace MigrationMySql.Server
                     .HasMaxLength(6)
                     .IsUnicode(false)
                     .HasColumnName("C03S")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cnes)
                     .HasMaxLength(50)
                     .HasColumnName("cnes")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cod)
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("cod");
 
                 entity.Property(e => e.CodMat).HasColumnName("cod_mat");
@@ -1123,35 +1118,35 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.HrEmFim)
                     .HasMaxLength(5)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.HrEmIni)
                     .HasMaxLength(5)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Indice1)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("INDICE1")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Indice2)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("INDICE2")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Indice3)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("INDICE3")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Indice4)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("INDICE4")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.IndiceF)
                     .HasColumnType("numeric(10, 4)")
@@ -1167,24 +1162,24 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Matmed1)
                     .HasMaxLength(20)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Nomeplano)
                     .HasMaxLength(50)
                     .HasColumnName("nomeplano")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Planilha)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("PLANILHA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Programa)
                     .HasMaxLength(6)
                     .IsUnicode(false)
                     .HasColumnName("PROGRAMA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Recnum).HasColumnName("recnum");
 
@@ -1192,42 +1187,42 @@ namespace MigrationMySql.Server
                     .HasMaxLength(20)
                     .HasColumnName("reg_ans")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Situacao)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("SITUACAO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tabela1)
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("TABELA1")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tabela2)
                     .HasMaxLength(30)
                     .HasColumnName("TABELA2")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tabela3)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("TABELA3")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tabela4)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("TABELA4")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Urgencia)
                     .HasMaxLength(6)
                     .IsUnicode(false)
                     .HasColumnName("URGENCIA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<ConvExtraFaturado>(entity =>
@@ -1240,7 +1235,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(6)
                     .IsUnicode(false)
                     .HasColumnName("C03S")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Convenio)
                     .HasColumnType("decimal(4, 0)")
@@ -1260,35 +1255,35 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.HrEmFim)
                     .HasMaxLength(5)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.HrEmIni)
                     .HasMaxLength(5)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Indice1)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("INDICE1")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Indice2)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("INDICE2")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Indice3)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("INDICE3")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Indice4)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("INDICE4")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.IndiceF)
                     .HasColumnType("decimal(10, 4)")
@@ -1304,54 +1299,54 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Matmed1)
                     .HasMaxLength(10)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Planilha)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("PLANILHA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Programa)
                     .HasMaxLength(6)
                     .IsUnicode(false)
                     .HasColumnName("PROGRAMA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Recnum)
                     .HasColumnType("decimal(8, 0)")
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("RECNUM");
 
                 entity.Property(e => e.Situacao)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("SITUACAO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tabela1)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("TABELA1")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tabela2)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("TABELA2")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tabela3)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("TABELA3")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tabela4)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("TABELA4")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<ConvExtraUltimo>(entity =>
@@ -1364,7 +1359,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(6)
                     .IsUnicode(false)
                     .HasColumnName("C03S")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Convenio)
                     .HasColumnType("numeric(4, 0)")
@@ -1384,35 +1379,35 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.HrEmFim)
                     .HasMaxLength(5)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.HrEmIni)
                     .HasMaxLength(5)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Indice1)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("INDICE1")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Indice2)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("INDICE2")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Indice3)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("INDICE3")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Indice4)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("INDICE4")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.IndiceF)
                     .HasColumnType("numeric(10, 4)")
@@ -1428,19 +1423,19 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Matmed1)
                     .HasMaxLength(10)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Planilha)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("PLANILHA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Programa)
                     .HasMaxLength(6)
                     .IsUnicode(false)
                     .HasColumnName("PROGRAMA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Recnum)
                     .HasColumnType("numeric(8, 0)")
@@ -1450,37 +1445,37 @@ namespace MigrationMySql.Server
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("SITUACAO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tabela1)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("TABELA1")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tabela2)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("TABELA2")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tabela3)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("TABELA3")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tabela4)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("TABELA4")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Urgencia)
                     .HasMaxLength(6)
                     .IsUnicode(false)
                     .HasColumnName("URGENCIA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Convenio>(entity =>
@@ -1495,25 +1490,25 @@ namespace MigrationMySql.Server
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("ARREDONDA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Bairro)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("BAIRRO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cep)
                     .HasMaxLength(12)
                     .IsUnicode(false)
                     .HasColumnName("CEP")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cidade)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("CIDADE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codesm)
                     .HasMaxLength(5)
@@ -1529,32 +1524,32 @@ namespace MigrationMySql.Server
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("CONTATO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cpf)
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("CPF")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Dhe).HasColumnName("DHE");
 
                 entity.Property(e => e.Email)
                     .HasMaxLength(50)
                     .HasColumnName("email")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Endereco)
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("ENDERECO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Estado)
                     .HasMaxLength(2)
                     .IsUnicode(false)
                     .HasColumnName("ESTADO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.FlCompmatricula).HasColumnName("fl_compmatricula");
 
@@ -1562,18 +1557,18 @@ namespace MigrationMySql.Server
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("INDICE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Nome)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("NOME")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Obs)
                     .HasMaxLength(255)
                     .HasColumnName("OBS")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Percentual)
                     .HasColumnType("numeric(6, 2)")
@@ -1582,24 +1577,24 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Razaosocial)
                     .HasMaxLength(255)
                     .HasColumnName("RAZAOSOCIAL")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tabela)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("TABELA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.TaxaImposto)
                     .HasColumnType("decimal(10, 2)")
                     .HasColumnName("taxaImposto")
-                    .HasDefaultValueSql("((0))");
+                    ;
 
                 entity.Property(e => e.Telefone)
                     .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("TELEFONE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Vias)
                     .HasColumnType("numeric(2, 0)")
@@ -1615,67 +1610,67 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Bairro)
                     .HasMaxLength(255)
                     .HasColumnName("BAIRRO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cep).HasColumnName("CEP");
 
                 entity.Property(e => e.Cidade)
                     .HasMaxLength(255)
                     .HasColumnName("CIDADE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cnpj)
                     .HasMaxLength(255)
                     .HasColumnName("CNPJ")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Complemento)
                     .HasMaxLength(255)
                     .HasColumnName("COMPLEMENTO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Ddd).HasColumnName("DDD");
 
                 entity.Property(e => e.EndereçoEletrônico)
                     .HasMaxLength(255)
                     .HasColumnName("ENDEREÇO ELETRÔNICO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Fax).HasColumnName("FAX");
 
                 entity.Property(e => e.Logradouro)
                     .HasMaxLength(255)
                     .HasColumnName("LOGRADOURO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Nome)
                     .HasMaxLength(255)
                     .HasColumnName("NOME")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.NomeFantasia)
                     .HasMaxLength(255)
                     .HasColumnName("NOME FANTASIA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.NºRegistroAns)
                     .HasMaxLength(255)
                     .HasColumnName("Nº REGISTRO ANS")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Número).HasColumnName("NÚMERO");
 
                 entity.Property(e => e.RazãoSocial)
                     .HasMaxLength(255)
                     .HasColumnName("RAZÃO SOCIAL")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Telefone).HasColumnName("TELEFONE");
 
                 entity.Property(e => e.Uf)
                     .HasMaxLength(255)
                     .HasColumnName("UF")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<ConveniosFaturado>(entity =>
@@ -1688,25 +1683,25 @@ namespace MigrationMySql.Server
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("ARREDONDA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Bairro)
                     .HasMaxLength(15)
                     .IsUnicode(false)
                     .HasColumnName("BAIRRO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cep)
                     .HasMaxLength(9)
                     .IsUnicode(false)
                     .HasColumnName("CEP")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cidade)
                     .HasMaxLength(15)
                     .IsUnicode(false)
                     .HasColumnName("CIDADE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codesm)
                     .HasMaxLength(5)
@@ -1715,7 +1710,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Codesm2)
                     .HasMaxLength(10)
                     .HasColumnName("codesm2")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codigo)
                     .HasColumnType("numeric(4, 0)")
@@ -1725,13 +1720,13 @@ namespace MigrationMySql.Server
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("CONTATO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cpf)
                     .HasMaxLength(18)
                     .IsUnicode(false)
                     .HasColumnName("CPF")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Dhe).HasColumnName("DHE");
 
@@ -1739,25 +1734,25 @@ namespace MigrationMySql.Server
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("ENDERECO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Estado)
                     .HasMaxLength(2)
                     .IsUnicode(false)
                     .HasColumnName("ESTADO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Indice)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("INDICE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Nome)
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("NOME")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Percentual)
                     .HasColumnType("numeric(6, 2)")
@@ -1771,13 +1766,13 @@ namespace MigrationMySql.Server
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("TABELA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Telefone)
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("TELEFONE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Vias)
                     .HasColumnType("numeric(2, 0)")
@@ -1794,30 +1789,30 @@ namespace MigrationMySql.Server
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("ARREDONDA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Bairro)
                     .HasMaxLength(15)
                     .IsUnicode(false)
                     .HasColumnName("BAIRRO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cep)
                     .HasMaxLength(9)
                     .IsUnicode(false)
                     .HasColumnName("CEP")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cidade)
                     .HasMaxLength(15)
                     .IsUnicode(false)
                     .HasColumnName("CIDADE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codesm)
                     .HasMaxLength(10)
                     .HasColumnName("codesm")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codigo)
                     .HasColumnType("numeric(4, 0)")
@@ -1827,13 +1822,13 @@ namespace MigrationMySql.Server
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("CONTATO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cpf)
                     .HasMaxLength(18)
                     .IsUnicode(false)
                     .HasColumnName("CPF")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Dhe).HasColumnName("DHE");
 
@@ -1841,24 +1836,24 @@ namespace MigrationMySql.Server
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("ENDERECO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Estado)
                     .HasMaxLength(2)
                     .IsUnicode(false)
                     .HasColumnName("ESTADO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Indice)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("INDICE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Nome)
                     .HasMaxLength(50)
                     .HasColumnName("NOME")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Percentual)
                     .HasColumnType("numeric(6, 2)")
@@ -1872,13 +1867,13 @@ namespace MigrationMySql.Server
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("TABELA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Telefone)
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("TELEFONE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Vias)
                     .HasColumnType("numeric(2, 0)")
@@ -1891,57 +1886,57 @@ namespace MigrationMySql.Server
                     .HasMaxLength(5)
                     .IsUnicode(false)
                     .HasColumnName("CustomerID")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Address)
                     .HasMaxLength(60)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.City)
                     .HasMaxLength(15)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.CompanyName)
                     .HasMaxLength(40)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ContactName)
                     .HasMaxLength(30)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ContactTitle)
                     .HasMaxLength(30)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Country)
                     .HasMaxLength(15)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Fax)
                     .HasMaxLength(24)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Phone)
                     .HasMaxLength(24)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PostalCode)
                     .HasMaxLength(10)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Region)
                     .HasMaxLength(15)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Employee>(entity =>
@@ -1951,67 +1946,67 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Address)
                     .HasMaxLength(60)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.BirthDate).HasColumnType("datetime");
 
                 entity.Property(e => e.City)
                     .HasMaxLength(15)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Country)
                     .HasMaxLength(15)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Extension)
                     .HasMaxLength(4)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.FirstName)
                     .HasMaxLength(10)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.HireDate).HasColumnType("datetime");
 
                 entity.Property(e => e.HomePhone)
                     .HasMaxLength(24)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.LastName)
                     .HasMaxLength(20)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Notes)
                     .HasColumnType("text")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Photo).HasColumnType("image");
+                entity.Property(e => e.Photo).HasColumnType("blob");
 
                 entity.Property(e => e.PostalCode)
                     .HasMaxLength(10)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Region)
                     .HasMaxLength(15)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Title)
                     .HasMaxLength(30)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.TitleOfCourtesy)
                     .HasMaxLength(25)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Encaminhamento>(entity =>
@@ -2020,13 +2015,13 @@ namespace MigrationMySql.Server
 
                 entity.ToTable("Encaminhamento");
 
-                entity.Property(e => e.Codigo).ValueGeneratedOnAdd();
+                entity.Property(e => e.Codigo);
 
                 entity.Property(e => e.Data).HasColumnType("datetime");
 
-                entity.Property(e => e.Descricao).HasColumnType("ntext");
+                entity.Property(e => e.Descricao).HasColumnType("longtext");
 
-                entity.Property(e => e.Destino).HasColumnType("ntext");
+                entity.Property(e => e.Destino).HasColumnType("longtext");
             });
 
             modelBuilder.Entity<EntradaESaidum>(entity =>
@@ -2054,13 +2049,13 @@ namespace MigrationMySql.Server
                 entity.ToTable("exames_bloqueados");
 
                 entity.Property(e => e.Codigo)
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("codigo");
 
                 entity.Property(e => e.Exame)
                     .HasMaxLength(5)
                     .HasColumnName("exame")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tipo).HasColumnName("tipo");
             });
@@ -2077,7 +2072,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(10)
                     .IsUnicode(false)
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Data).HasColumnType("datetime");
 
@@ -2100,17 +2095,17 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Mesref)
                     .HasMaxLength(5)
                     .HasColumnName("mesref")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Nf)
                     .HasMaxLength(50)
                     .HasColumnName("nf")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Obs)
                     .HasMaxLength(1000)
                     .HasColumnName("obs")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Pago).HasColumnType("decimal(18, 2)");
 
@@ -2175,15 +2170,15 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Data)
                     .HasMaxLength(50)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Descrição)
                     .HasMaxLength(50)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Dia)
                     .HasMaxLength(50)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Rowguid).HasColumnName("rowguid");
             });
@@ -2195,13 +2190,13 @@ namespace MigrationMySql.Server
                 entity.ToTable("formas");
 
                 entity.Property(e => e.Codigo)
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("codigo");
 
                 entity.Property(e => e.Descricao)
                     .HasMaxLength(30)
                     .HasColumnName("descricao")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Rowguid).HasColumnName("rowguid");
             });
@@ -2215,30 +2210,30 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Cabfixo).HasColumnName("CABFIXO");
 
                 entity.Property(e => e.Codigo)
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("codigo");
 
                 entity.Property(e => e.Grade1)
                     .HasMaxLength(8)
                     .HasColumnName("GRADE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ImpGrade)
                     .HasMaxLength(1)
                     .HasColumnName("IMP_GRADE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Nome)
                     .HasMaxLength(10)
                     .HasColumnName("NOME")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Rowguid).HasColumnName("rowguid");
 
                 entity.Property(e => e.Setor)
                     .HasMaxLength(2)
                     .HasColumnName("SETOR")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tamcols).HasColumnName("TAMCOLS");
 
@@ -2256,12 +2251,12 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Exame)
                     .HasMaxLength(3)
                     .HasColumnName("EXAME")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Grade)
                     .HasMaxLength(10)
                     .HasColumnName("GRADE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Ordem).HasColumnName("ORDEM");
 
@@ -2279,12 +2274,12 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Estacao)
                     .HasMaxLength(3)
                     .HasColumnName("ESTACAO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Grade)
                     .HasMaxLength(10)
                     .HasColumnName("GRADE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Imprime).HasColumnName("IMPRIME");
 
@@ -2298,13 +2293,13 @@ namespace MigrationMySql.Server
                 entity.ToTable("grupo_exame");
 
                 entity.Property(e => e.Codigo)
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("codigo");
 
                 entity.Property(e => e.Nome)
                     .HasMaxLength(50)
                     .HasColumnName("nome")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Rowguid).HasColumnName("rowguid");
 
@@ -2320,67 +2315,67 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Apelido)
                     .HasMaxLength(2)
                     .HasColumnName("APELIDO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codigo)
                     .HasMaxLength(2)
                     .HasColumnName("CODIGO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cor01)
                     .HasMaxLength(70)
                     .HasColumnName("COR01")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cor02)
                     .HasMaxLength(150)
                     .HasColumnName("COR02")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Grupo)
                     .HasMaxLength(30)
                     .HasColumnName("GRUPO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ImpEtqd)
                     .HasMaxLength(1)
                     .HasColumnName("IMP_ETQD")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ImpExm)
                     .HasMaxLength(1)
                     .HasColumnName("IMP_EXM")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ImpGab)
                     .HasMaxLength(1)
                     .HasColumnName("IMP_GAB")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ImpSpc)
                     .HasMaxLength(1)
                     .HasColumnName("IMP_SPC")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ImpUrg)
                     .HasMaxLength(1)
                     .HasColumnName("IMP_URG")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ImpressN)
                     .HasMaxLength(8)
                     .HasColumnName("IMPRESS_N")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ImpressU)
                     .HasMaxLength(8)
                     .HasColumnName("IMPRESS_U")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.MedRealiz)
                     .HasMaxLength(6)
                     .HasColumnName("MED_REALIZ")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Porcent).HasColumnName("PORCENT");
 
@@ -2393,37 +2388,37 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.SaidaN)
                     .HasMaxLength(4)
                     .HasColumnName("SAIDA_N")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.SaidaU)
                     .HasMaxLength(4)
                     .HasColumnName("SAIDA_U")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Setor01)
                     .HasMaxLength(130)
                     .HasColumnName("SETOR01")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Setor02)
                     .HasMaxLength(130)
                     .HasColumnName("SETOR02")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Setor03)
                     .HasMaxLength(130)
                     .HasColumnName("SETOR03")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.TipoFat)
                     .HasMaxLength(1)
                     .HasColumnName("TIPO_FAT")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Titan)
                     .HasMaxLength(1)
                     .HasColumnName("TITAN")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<GruposProduto>(entity =>
@@ -2437,7 +2432,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.DescricaoGrupo)
                     .HasMaxLength(50)
                     .HasColumnName("descricao_grupo")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Guardum>(entity =>
@@ -2449,23 +2444,23 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Codigo)
                     .HasMaxLength(6)
                     .HasColumnName("CODIGO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Data)
-                    .HasColumnType("smalldatetime")
+                    .HasColumnType("datetime")
                     .HasColumnName("DATA");
 
                 entity.Property(e => e.Nome)
                     .HasMaxLength(35)
                     .HasColumnName("NOME")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Rowguid).HasColumnName("rowguid");
 
                 entity.Property(e => e.Trace)
-                    .HasColumnType("ntext")
+                    .HasColumnType("longtext")
                     .HasColumnName("TRACE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Histdoctors0>(entity =>
@@ -2564,12 +2559,12 @@ namespace MigrationMySql.Server
                 entity.HasNoKey();
 
                 entity.Property(e => e.Codigo)
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("codigo");
 
                 entity.Property(e => e.Descricao)
                     .HasMaxLength(100)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Flag)
                     .HasMaxLength(1)
@@ -2595,7 +2590,7 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Iditem)
                     .HasColumnType("decimal(12, 0)")
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("iditem");
 
                 entity.Property(e => e.Obs)
@@ -2628,25 +2623,25 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Cidkit)
                     .HasMaxLength(10)
                     .HasColumnName("cidkit")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codkitproc)
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("codkitproc");
 
                 entity.Property(e => e.Desckitproc)
                     .HasMaxLength(100)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Histclinkit)
                     .HasMaxLength(100)
                     .HasColumnName("histclinkit")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tabelakit)
                     .HasMaxLength(30)
                     .HasColumnName("tabelakit")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Leito>(entity =>
@@ -2657,7 +2652,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(4)
                     .IsUnicode(false)
                     .HasColumnName("NUMERO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Prontuario)
                     .HasColumnType("decimal(6, 0)")
@@ -2665,7 +2660,7 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Recnum)
                     .HasColumnType("decimal(8, 0)")
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("RECNUM");
 
                 entity.Property(e => e.UnidInternacao)
@@ -2680,7 +2675,7 @@ namespace MigrationMySql.Server
                 entity.ToTable("listagem");
 
                 entity.Property(e => e.Codigo)
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("codigo");
 
                 entity.Property(e => e.CodigoColunas)
@@ -2696,7 +2691,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Exame)
                     .HasMaxLength(10)
                     .HasColumnName("exame")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Folha).HasColumnName("folha");
 
@@ -2718,7 +2713,7 @@ namespace MigrationMySql.Server
                 entity.ToTable("log");
 
                 entity.Property(e => e.Codigo)
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("codigo");
 
                 entity.Property(e => e.Conta)
@@ -2748,16 +2743,16 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Bd)
                     .HasMaxLength(50)
                     .HasColumnName("BD")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codigo)
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("codigo");
 
                 entity.Property(e => e.Descricao)
                     .HasMaxLength(50)
                     .HasColumnName("descricao")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Fim)
                     .HasColumnType("datetime")
@@ -2786,7 +2781,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("descricao")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Hora)
                     .HasColumnType("datetime")
@@ -2801,31 +2796,31 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Grupo)
                     .HasMaxLength(1)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Login1)
                     .HasMaxLength(100)
                     .HasColumnName("Login")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.NomeCompleto)
                     .HasMaxLength(50)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.RegProfis)
                     .HasMaxLength(10)
                     .IsUnicode(false)
                     .HasColumnName("reg_profis")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Senha)
                     .HasMaxLength(30)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Siglaconselho)
                     .HasMaxLength(10)
                     .HasColumnName("siglaconselho")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.TipoUsuario).HasColumnName("Tipo_Usuario");
 
@@ -2833,7 +2828,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(2)
                     .HasColumnName("UF_conselho")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.UltimoAcesso)
                     .HasColumnType("datetime")
@@ -2848,110 +2843,110 @@ namespace MigrationMySql.Server
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("BAIRRO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cep)
                     .HasMaxLength(10)
                     .HasColumnName("CEP")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cidade)
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("CIDADE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codigo)
                     .HasColumnType("numeric(18, 0)")
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("CODIGO");
 
                 entity.Property(e => e.ComplEnd)
                     .HasMaxLength(40)
                     .IsUnicode(false)
                     .HasColumnName("COMPL_END")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Convenio)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("CONVENIO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Dtnasc)
                     .HasMaxLength(20)
                     .HasColumnName("DTNASC")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Email)
                     .HasMaxLength(100)
                     .HasColumnName("email")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Endereco)
                     .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("ENDERECO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Endresp)
                     .HasMaxLength(35)
                     .IsUnicode(false)
                     .HasColumnName("ENDRESP")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Foneresp)
                     .HasMaxLength(35)
                     .IsUnicode(false)
                     .HasColumnName("FONERESP")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Mae)
                     .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("MAE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Nome)
                     .HasMaxLength(100)
                     .HasColumnName("NOME")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Numero)
                     .HasMaxLength(10)
                     .IsUnicode(false)
                     .HasColumnName("NUMERO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Ocupacao)
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("OCUPACAO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Pai)
                     .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("PAI")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Responsavel)
                     .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("RESPONSAVEL")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Rg)
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("RG")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Sexo)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("SEXO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tel1)
                     .HasMaxLength(30)
@@ -2969,7 +2964,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("TELEFONE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tipologradouro).HasColumnName("tipologradouro");
 
@@ -2977,7 +2972,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(2)
                     .IsUnicode(false)
                     .HasColumnName("UF")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Mapa>(entity =>
@@ -2991,7 +2986,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Descricao)
                     .HasMaxLength(200)
                     .HasColumnName("descricao")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Rowguid).HasColumnName("rowguid");
             });
@@ -3003,13 +2998,13 @@ namespace MigrationMySql.Server
                 entity.ToTable("MAPA_ESPEC");
 
                 entity.Property(e => e.Codigo)
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("codigo");
 
                 entity.Property(e => e.Nome)
                     .HasMaxLength(50)
                     .HasColumnName("nome")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Rowguid).HasColumnName("rowguid");
             });
@@ -3023,54 +3018,54 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Dtcoleta)
                     .HasMaxLength(10)
                     .HasColumnName("dtcoleta")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Hrcoleta)
                     .HasMaxLength(10)
                     .HasColumnName("hrcoleta")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Idade).HasColumnName("idade");
 
                 entity.Property(e => e.Nome)
                     .HasMaxLength(300)
                     .HasColumnName("nome")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Requisicao)
                     .HasMaxLength(20)
                     .HasColumnName("requisicao")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Result1)
                     .HasMaxLength(10)
                     .HasColumnName("result1")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Result2)
                     .HasMaxLength(10)
                     .HasColumnName("result2")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Result3)
                     .HasMaxLength(10)
                     .HasColumnName("result3")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Result4)
                     .HasMaxLength(10)
                     .HasColumnName("result4")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Result5)
                     .HasMaxLength(10)
                     .HasColumnName("result5")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Result6)
                     .HasMaxLength(10)
                     .HasColumnName("result6")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<MatMedUnimed>(entity =>
@@ -3115,13 +3110,13 @@ namespace MigrationMySql.Server
                 entity.ToTable("materiais");
 
                 entity.Property(e => e.Codigo)
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("codigo");
 
                 entity.Property(e => e.Descricao)
                     .HasMaxLength(100)
                     .HasColumnName("descricao")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Matmed>(entity =>
@@ -3130,92 +3125,92 @@ namespace MigrationMySql.Server
 
                 entity.ToTable("matmed");
 
-                entity.Property(e => e.Alteração).HasColumnType("smalldatetime");
+                entity.Property(e => e.Alteração).HasColumnType("datetime");
 
                 entity.Property(e => e.Compra)
                     .HasMaxLength(255)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Código)
                     .HasMaxLength(50)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Data).HasColumnType("smalldatetime");
+                entity.Property(e => e.Data).HasColumnType("datetime");
 
-                entity.Property(e => e.Data1).HasColumnType("smalldatetime");
+                entity.Property(e => e.Data1).HasColumnType("datetime");
 
                 entity.Property(e => e.Descrição)
                     .HasMaxLength(255)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Dv)
                     .HasMaxLength(50)
                     .HasColumnName("DV")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Embalagem)
                     .HasMaxLength(255)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Especi)
                     .HasMaxLength(255)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Fabricante)
                     .HasMaxLength(255)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Fracionar)
                     .HasMaxLength(255)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.GrupodeEstoque)
                     .HasMaxLength(255)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Inclusão).HasColumnType("smalldatetime");
+                entity.Property(e => e.Inclusão).HasColumnType("datetime");
 
                 entity.Property(e => e.MinistériodaSaúde)
                     .HasMaxLength(255)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Motivo)
                     .HasMaxLength(255)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Nacional)
                     .HasMaxLength(1)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.NomeComercial)
                     .HasMaxLength(255)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Origem)
                     .HasMaxLength(255)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ReutilizaçãoGenérico)
                     .HasMaxLength(255)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Situação)
                     .HasMaxLength(255)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.TabUd)
                     .HasMaxLength(255)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tipo)
                     .HasMaxLength(1)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Unidade)
                     .HasMaxLength(255)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Validade).HasColumnType("smalldatetime");
+                entity.Property(e => e.Validade).HasColumnType("datetime");
             });
 
             modelBuilder.Entity<Matmedunimed1>(entity =>
@@ -3228,11 +3223,11 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Descricao)
                     .HasMaxLength(255)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.NomeComercial)
                     .HasMaxLength(255)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Preço).HasColumnType("numeric(18, 2)");
             });
@@ -3256,7 +3251,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Operador)
                     .HasMaxLength(20)
                     .HasColumnName("operador")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PrUnit).HasColumnName("PR_UNIT");
 
@@ -3268,7 +3263,7 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Recnum)
                     .HasColumnType("decimal(8, 0)")
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("RECNUM");
 
                 entity.Property(e => e.Registro).HasColumnName("REGISTRO");
@@ -3294,12 +3289,12 @@ namespace MigrationMySql.Server
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("OBSERVACAO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Operador)
                     .HasMaxLength(20)
                     .HasColumnName("operador")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Posto)
                     .HasColumnType("decimal(4, 0)")
@@ -3319,12 +3314,12 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Registro)
                     .HasColumnType("decimal(6, 0)")
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("REGISTRO");
 
-                entity.Property(e => e.RegistroP).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.RegistroP).HasColumnType("float(10, 2)");
 
-                entity.Property(e => e.Total).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.Total).HasColumnType("float(10, 2)");
 
                 entity.Property(e => e.TotalPago).HasColumnType("decimal(18, 2)");
             });
@@ -3340,7 +3335,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Operador)
                     .HasMaxLength(20)
                     .HasColumnName("operador")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PrUnit).HasColumnName("PR_UNIT");
 
@@ -3377,12 +3372,12 @@ namespace MigrationMySql.Server
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("OBSERVACAO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Operador)
                     .HasMaxLength(20)
                     .HasColumnName("operador")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Posto)
                     .HasColumnType("decimal(4, 0)")
@@ -3402,18 +3397,18 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Registro)
                     .HasColumnType("decimal(6, 0)")
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("REGISTRO");
 
-                entity.Property(e => e.RegistroP).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.RegistroP).HasColumnType("float(10, 2)");
 
                 entity.Property(e => e.Requisicao)
                     .HasMaxLength(10)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Total).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.Total).HasColumnType("float(10, 2)");
 
-                entity.Property(e => e.TotalPago).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.TotalPago).HasColumnType("float(10, 2)");
             });
 
             modelBuilder.Entity<Medic>(entity =>
@@ -3425,27 +3420,27 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Col001)
                     .HasMaxLength(255)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Col002)
                     .HasMaxLength(255)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Col003)
                     .HasMaxLength(255)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Col004)
                     .HasMaxLength(255)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Col005)
                     .HasMaxLength(255)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Medico>(entity =>
@@ -3458,7 +3453,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("CRM")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Hrent1)
                     .HasColumnType("datetime")
@@ -3479,17 +3474,17 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Matricula)
                     .HasMaxLength(30)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Nome)
                     .HasMaxLength(50)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.NomeCompleto)
                     .HasMaxLength(100)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Modificaco>(entity =>
@@ -3498,7 +3493,7 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Codigo)
                     .HasColumnType("numeric(18, 0)")
-                    .ValueGeneratedOnAdd();
+                    ;
 
                 entity.Property(e => e.Data).HasColumnType("datetime");
 
@@ -3506,11 +3501,11 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Tabela)
                     .HasMaxLength(50)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Usuario)
                     .HasMaxLength(20)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Movimentacao>(entity =>
@@ -3538,13 +3533,12 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.CustomerId)
                     .HasMaxLength(5)
-                    .IsUnicode(false)
                     .HasColumnName("CustomerID")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
 
-                entity.Property(e => e.Freight).HasColumnType("money");
+                entity.Property(e => e.Freight).HasColumnType("decimal(15,2)");
 
                 entity.Property(e => e.OrderDate).HasColumnType("datetime");
 
@@ -3552,33 +3546,32 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.ShipAddress)
                     .HasMaxLength(60)
-                    .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ShipCity)
                     .HasMaxLength(15)
-                    .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ShipCountry)
                     .HasMaxLength(15)
-                    .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ShipName)
                     .HasMaxLength(40)
-                    .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ShipPostalCode)
                     .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ShipRegion)
                     .HasMaxLength(15)
-                    .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ShippedDate).HasColumnType("datetime");
             });
@@ -3594,7 +3587,7 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.ProductId).HasColumnName("ProductID");
 
-                entity.Property(e => e.UnitPrice).HasColumnType("money");
+                entity.Property(e => e.UnitPrice).HasColumnType("decimal(15,2)");
             });
 
             modelBuilder.Entity<Paciente>(entity =>
@@ -3653,7 +3646,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Nome)
                     .HasMaxLength(500)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Pai)
                     .HasMaxLength(500)
@@ -3671,7 +3664,7 @@ namespace MigrationMySql.Server
 
                 entity.ToTable("Pacientes");
 
-                entity.Property(e => e.CodigoP).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.CodigoP).HasColumnType("float(10, 2)");
 
                 entity.Property(e => e.Altura)
                     .HasColumnType("decimal(6, 2)")
@@ -3683,50 +3676,50 @@ namespace MigrationMySql.Server
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("BAIRRO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cep)
                     .HasMaxLength(10)
                     .HasColumnName("CEP")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cidade)
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("CIDADE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codigo)
                     .HasColumnType("numeric(18, 0)")
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("CODIGO");
 
                 entity.Property(e => e.Codigolegado)
                     .HasMaxLength(30)
                     .HasColumnName("codigolegado")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ComplEnd)
                     .HasMaxLength(40)
                     .IsUnicode(false)
                     .HasColumnName("COMPL_END")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Convenio)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("CONVENIO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cpf)
                     .HasMaxLength(20)
                     .HasColumnName("cpf")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Dtnasc)
                     .HasMaxLength(20)
                     .HasColumnName("DTNASC")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Dtobito)
                     .HasColumnType("datetime")
@@ -3735,34 +3728,34 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Email)
                     .HasMaxLength(100)
                     .HasColumnName("email")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Endereco)
                     .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("ENDERECO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Endresp)
                     .HasMaxLength(35)
                     .IsUnicode(false)
                     .HasColumnName("ENDRESP")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Fatirdu)
                     .HasMaxLength(5)
                     .HasColumnName("fatirdu")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Fatordu)
                     .HasMaxLength(5)
                     .HasColumnName("fatordu")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Fatorrh)
                     .HasMaxLength(1)
                     .HasColumnName("fatorrh")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.FlImportado).HasColumnName("fl_importado");
 
@@ -3770,41 +3763,41 @@ namespace MigrationMySql.Server
                     .HasMaxLength(35)
                     .IsUnicode(false)
                     .HasColumnName("FONERESP")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Gsang)
                     .HasMaxLength(5)
                     .HasColumnName("gsang")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Mae)
                     .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("MAE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Nome)
                     .HasMaxLength(100)
                     .HasColumnName("NOME")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Numero)
                     .HasMaxLength(10)
                     .IsUnicode(false)
                     .HasColumnName("NUMERO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Ocupacao)
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("OCUPACAO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Pai)
                     .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("PAI")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Peso)
                     .HasColumnType("decimal(6, 2)")
@@ -3818,19 +3811,19 @@ namespace MigrationMySql.Server
                     .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("RESPONSAVEL")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Rg)
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("RG")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Sexo)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("SEXO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Statuscarteira).HasColumnName("statuscarteira");
 
@@ -3840,12 +3833,12 @@ namespace MigrationMySql.Server
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("TELEFONE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Telefone2)
                     .HasMaxLength(30)
                     .HasColumnName("telefone2")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tipologradouro).HasColumnName("tipologradouro");
 
@@ -3853,7 +3846,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(2)
                     .IsUnicode(false)
                     .HasColumnName("UF")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Unidade).HasColumnName("UNIDADE");
             });
@@ -3869,42 +3862,42 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Convenio)
                     .HasMaxLength(50)
                     .HasColumnName("CONVENIO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Dependencia)
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("DEPENDENCIA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Empresa)
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("EMPRESA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Guia)
                     .HasMaxLength(15)
                     .IsUnicode(false)
                     .HasColumnName("GUIA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Matricula)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("MATRICULA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Paciente).HasColumnName("PACIENTE");
 
                 entity.Property(e => e.Pacientenomeplano)
                     .HasMaxLength(50)
                     .HasColumnName("pacientenomeplano")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Recnum)
                     .HasColumnType("decimal(8, 0)")
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("RECNUM");
 
                 entity.Property(e => e.Statusnet).HasColumnName("statusnet");
@@ -3913,17 +3906,17 @@ namespace MigrationMySql.Server
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("TITULAR")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Ultimo)
                     .HasMaxLength(50)
                     .HasColumnName("ULTIMO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Validade)
                     .HasMaxLength(50)
                     .HasColumnName("VALIDADE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<PacientesExtra>(entity =>
@@ -3936,43 +3929,43 @@ namespace MigrationMySql.Server
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("ECIVIL")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Endresp)
                     .HasMaxLength(35)
                     .IsUnicode(false)
                     .HasColumnName("ENDRESP")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Mae)
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("MAE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Nacional)
                     .HasMaxLength(2)
                     .IsUnicode(false)
                     .HasColumnName("NACIONAL")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Natural)
                     .HasMaxLength(2)
                     .IsUnicode(false)
                     .HasColumnName("NATURAL")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Observacao)
                     .HasMaxLength(35)
                     .IsUnicode(false)
                     .HasColumnName("OBSERVACAO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Ocupacao)
                     .HasMaxLength(15)
                     .IsUnicode(false)
                     .HasColumnName("OCUPACAO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Paciente).HasColumnName("PACIENTE");
 
@@ -3980,18 +3973,18 @@ namespace MigrationMySql.Server
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("PAI")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Recnum)
                     .HasColumnType("decimal(8, 0)")
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("RECNUM");
 
                 entity.Property(e => e.Responsavel)
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("RESPONSAVEL")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Rowguid).HasColumnName("rowguid");
             });
@@ -4005,7 +3998,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Autorizacao)
                     .HasMaxLength(255)
                     .HasColumnName("AUTORIZACAO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codigo).HasColumnName("CODIGO");
 
@@ -4014,10 +4007,10 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Convênio)
                     .HasMaxLength(255)
                     .HasColumnName("CONVÊNIO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Data)
-                    .HasColumnType("smalldatetime")
+                    .HasColumnType("datetime")
                     .HasColumnName("DATA");
 
                 entity.Property(e => e.Guia).HasColumnName("GUIA");
@@ -4027,24 +4020,24 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Paciente)
                     .HasMaxLength(255)
                     .HasColumnName("PACIENTE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Plano)
                     .HasMaxLength(255)
                     .HasColumnName("PLANO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Principal).HasColumnName("PRINCIPAL");
 
                 entity.Property(e => e.Procedimento)
                     .HasMaxLength(255)
                     .HasColumnName("PROCEDIMENTO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Valor)
                     .HasMaxLength(255)
                     .HasColumnName("VALOR")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Planvisual>(entity =>
@@ -4056,7 +4049,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Autorizacao)
                     .HasMaxLength(255)
                     .HasColumnName("AUTORIZACAO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codigo).HasColumnName("CODIGO");
 
@@ -4065,65 +4058,65 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Convênio)
                     .HasMaxLength(255)
                     .HasColumnName("CONVÊNIO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Data)
-                    .HasColumnType("smalldatetime")
+                    .HasColumnType("datetime")
                     .HasColumnName("DATA");
 
                 entity.Property(e => e.Guia)
                     .HasMaxLength(53)
                     .HasColumnName("GUIA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Matricula)
                     .HasMaxLength(53)
                     .HasColumnName("MATRICULA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Paciente)
                     .HasMaxLength(255)
                     .HasColumnName("PACIENTE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Plano)
                     .HasMaxLength(255)
                     .HasColumnName("PLANO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Principal)
                     .HasMaxLength(53)
                     .HasColumnName("PRINCIPAL")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Procedimento)
                     .HasMaxLength(255)
                     .HasColumnName("PROCEDIMENTO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Valor)
                     .HasMaxLength(255)
                     .HasColumnName("VALOR")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Posto>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.Property(e => e.Codigo).ValueGeneratedOnAdd();
+                entity.Property(e => e.Codigo);
 
                 entity.Property(e => e.Endereço)
                     .HasMaxLength(100)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Nome)
                     .HasMaxLength(20)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.NomeCompleto)
                     .HasMaxLength(50)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Rowguid).HasColumnName("rowguid");
             });
@@ -4149,7 +4142,7 @@ namespace MigrationMySql.Server
                     .HasColumnName("ciclo");
 
                 entity.Property(e => e.Codigonet)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("codigonet");
 
                 entity.Property(e => e.Convenio).HasColumnName("convenio");
@@ -4184,7 +4177,7 @@ namespace MigrationMySql.Server
                     .IsUnicode(false)
                     .HasColumnName("obs");
 
-                entity.Property(e => e.Paciente).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.Paciente).HasColumnType("float(10, 2)");
 
                 entity.Property(e => e.Peso)
                     .HasColumnType("decimal(4, 0)")
@@ -4254,12 +4247,12 @@ namespace MigrationMySql.Server
                     .HasColumnName("PROFISSIONAL");
 
                 entity.Property(e => e.Recnum)
-                    .HasColumnType("decimal(18, 0)")
-                    .ValueGeneratedOnAdd()
+                    .HasColumnType("float(10, 2)")
+                    
                     .HasColumnName("RECNUM");
 
                 entity.Property(e => e.Registro)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("REGISTRO");
 
                 entity.Property(e => e.Statusnet).HasColumnName("statusnet");
@@ -4314,7 +4307,7 @@ namespace MigrationMySql.Server
                     .HasColumnName("PROCEDIMENTO");
 
                 entity.Property(e => e.Prontuario)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("PRONTUARIO");
 
                 entity.Property(e => e.Qtd)
@@ -4330,22 +4323,22 @@ namespace MigrationMySql.Server
                     .HasColumnName("RECNUM");
 
                 entity.Property(e => e.Reducaoacrescimo)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("reducaoacrescimo");
 
                 entity.Property(e => e.Registro)
-                    .HasColumnType("decimal(18, 0)")
-                    .ValueGeneratedOnAdd()
+                    .HasColumnType("float(10, 2)")
+                    
                     .HasColumnName("REGISTRO");
 
-                entity.Property(e => e.RegistroP).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.RegistroP).HasColumnType("float(10, 2)");
 
                 entity.Property(e => e.Statusnet).HasColumnName("statusnet");
 
                 entity.Property(e => e.Tabela)
                     .HasMaxLength(30)
                     .HasColumnName("TABELA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tecnica).HasColumnName("tecnica");
 
@@ -4368,29 +4361,29 @@ namespace MigrationMySql.Server
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("CODIGO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Descri)
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("DESCRI")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Indice)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("INDICE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Mascara)
                     .HasMaxLength(12)
                     .IsUnicode(false)
                     .HasColumnName("MASCARA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Recnum)
                     .HasColumnType("decimal(8, 0)")
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("RECNUM");
 
                 entity.Property(e => e.Rowguid).HasColumnName("rowguid");
@@ -4422,7 +4415,7 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Recnum)
                     .HasColumnType("decimal(8, 0)")
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("RECNUM");
 
                 entity.Property(e => e.Registro)
@@ -4451,12 +4444,12 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Autori)
                     .HasMaxLength(20)
                     .HasColumnName("autori")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Coletador)
                     .HasMaxLength(20)
                     .HasColumnName("coletador")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Contratado).HasColumnName("contratado");
 
@@ -4479,7 +4472,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Guia)
                     .HasMaxLength(20)
                     .HasColumnName("guia")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.HrColeta)
                     .HasColumnType("datetime")
@@ -4490,7 +4483,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Lamina)
                     .HasMaxLength(10)
                     .HasColumnName("lamina")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Procedimento)
                     .HasColumnType("decimal(6, 0)")
@@ -4514,25 +4507,25 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Registro)
                     .HasColumnType("decimal(6, 0)")
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("REGISTRO");
 
-                entity.Property(e => e.RegistroP).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.RegistroP).HasColumnType("float(10, 2)");
 
                 entity.Property(e => e.Registroporigem)
                     .HasMaxLength(20)
                     .HasColumnName("REGISTROPORIGEM")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tabela)
                     .HasMaxLength(30)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Total)
                     .HasColumnType("decimal(14, 2)")
                     .HasColumnName("TOTAL");
 
-                entity.Property(e => e.TotalPago).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.TotalPago).HasColumnType("float(10, 2)");
 
                 entity.Property(e => e.Urgente).HasColumnName("urgente");
             });
@@ -4560,22 +4553,22 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.CodExt)
                     .HasMaxLength(20)
                     .HasColumnName("COD_EXT")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.CodRelacionado)
                     .HasMaxLength(20)
                     .HasColumnName("cod_relacionado")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codigo)
                     .HasColumnType("numeric(18, 0)")
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("codigo");
 
                 entity.Property(e => e.Codigotabelatiss)
                     .HasMaxLength(5)
                     .HasColumnName("codigotabelatiss")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codtipoato).HasColumnName("codtipoato");
 
@@ -4583,26 +4576,26 @@ namespace MigrationMySql.Server
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("DESCRI1")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Descri2)
                     .HasMaxLength(40)
                     .IsUnicode(false)
                     .HasColumnName("DESCRI2")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Descri3)
                     .HasMaxLength(40)
                     .IsUnicode(false)
                     .HasColumnName("DESCRI3")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Dias).HasColumnName("dias");
 
                 entity.Property(e => e.Exafatu)
                     .HasMaxLength(100)
                     .HasColumnName("exafatu")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Fatorqtd2)
                     .HasColumnType("decimal(4, 2)")
@@ -4615,7 +4608,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.FlTextocomp)
                     .HasMaxLength(100)
                     .HasColumnName("fl_textocomp")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Honorarios)
                     .HasColumnType("numeric(14, 2)")
@@ -4627,7 +4620,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("INDICE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Laudo)
                     .HasColumnType("numeric(4, 0)")
@@ -4636,17 +4629,17 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Material)
                     .HasMaxLength(300)
                     .HasColumnName("material")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Obc)
                     .HasMaxLength(100)
                     .HasColumnName("obc")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Obs)
                     .HasMaxLength(100)
                     .HasColumnName("obs")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Operacional)
                     .HasColumnType("numeric(14, 2)")
@@ -4655,7 +4648,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Preparo)
                     .HasMaxLength(300)
                     .HasColumnName("preparo")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Recnum)
                     .HasColumnType("numeric(8, 0)")
@@ -4668,13 +4661,13 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Sinonimia)
                     .HasMaxLength(300)
                     .HasColumnName("sinonimia")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tabela)
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("TABELA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Urgencia).HasColumnName("urgencia");
 
@@ -4704,39 +4697,39 @@ namespace MigrationMySql.Server
                     .HasColumnName("COD_AMB");
 
                 entity.Property(e => e.CodAmb2)
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("cod_amb2");
 
                 entity.Property(e => e.CodExt)
                     .HasMaxLength(11)
                     .IsUnicode(false)
                     .HasColumnName("COD_EXT")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Descri1)
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("DESCRI1")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Descri2)
                     .HasMaxLength(40)
                     .IsUnicode(false)
                     .HasColumnName("DESCRI2")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Descri3)
                     .HasMaxLength(40)
                     .IsUnicode(false)
                     .HasColumnName("DESCRI3")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Dias).HasColumnName("dias");
 
                 entity.Property(e => e.Exafatu)
                     .HasMaxLength(100)
                     .HasColumnName("exafatu")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Filme)
                     .HasColumnType("numeric(8, 4)")
@@ -4750,7 +4743,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("INDICE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Laudo)
                     .HasColumnType("numeric(4, 0)")
@@ -4759,17 +4752,17 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Material)
                     .HasMaxLength(300)
                     .HasColumnName("material")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Obc)
                     .HasMaxLength(100)
                     .HasColumnName("obc")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Obs)
                     .HasMaxLength(100)
                     .HasColumnName("obs")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Operacional)
                     .HasColumnType("numeric(14, 2)")
@@ -4778,7 +4771,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Preparo)
                     .HasMaxLength(300)
                     .HasColumnName("preparo")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Recnum)
                     .HasColumnType("numeric(8, 0)")
@@ -4793,13 +4786,13 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Sinonimia)
                     .HasMaxLength(300)
                     .HasColumnName("sinonimia")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tabela)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("TABELA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Urgencia).HasColumnName("urgencia");
 
@@ -4818,23 +4811,23 @@ namespace MigrationMySql.Server
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("CODIGO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Descri)
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("DESCRI")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Mascara)
                     .HasMaxLength(12)
                     .IsUnicode(false)
                     .HasColumnName("MASCARA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Recnum)
                     .HasColumnType("decimal(8, 0)")
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("RECNUM");
 
                 entity.Property(e => e.Revenda)
@@ -4852,7 +4845,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(12)
                     .IsUnicode(false)
                     .HasColumnName("COD_EXT")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Preco)
                     .HasColumnType("decimal(16, 4)")
@@ -4864,14 +4857,14 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Recnum)
                     .HasColumnType("decimal(8, 0)")
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("RECNUM");
 
                 entity.Property(e => e.Tabela)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("TABELA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.UltAlt)
                     .HasColumnType("datetime")
@@ -4888,10 +4881,10 @@ namespace MigrationMySql.Server
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("apresentacao")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codigo)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("codigo");
 
                 entity.Property(e => e.Conversao)
@@ -4902,7 +4895,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("descri")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Flinativo).HasColumnName("flinativo");
 
@@ -4911,7 +4904,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.NumTiss)
                     .HasMaxLength(20)
                     .HasColumnName("num_tiss")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PrVenda)
                     .HasColumnType("numeric(16, 4)")
@@ -4945,10 +4938,10 @@ namespace MigrationMySql.Server
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("apresentacao")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codigo)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("codigo");
 
                 entity.Property(e => e.Conversao)
@@ -4958,7 +4951,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Descri)
                     .HasMaxLength(200)
                     .HasColumnName("descri")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Flinativo).HasColumnName("flinativo");
 
@@ -4967,7 +4960,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.NumTiss)
                     .HasMaxLength(20)
                     .HasColumnName("num_tiss")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PrVenda)
                     .HasColumnType("numeric(16, 4)")
@@ -4997,16 +4990,16 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.ProductName)
                     .HasMaxLength(40)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.QuantityPerUnit)
                     .HasMaxLength(20)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.SupplierId).HasColumnName("SupplierID");
 
-                entity.Property(e => e.UnitPrice).HasColumnType("money");
+                entity.Property(e => e.UnitPrice).HasColumnType("decimal(15,2)");
             });
 
             modelBuilder.Entity<Produto>(entity =>
@@ -5029,7 +5022,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("APRESENTACAO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Brasindice)
                     .HasMaxLength(12)
@@ -5037,7 +5030,7 @@ namespace MigrationMySql.Server
                     .HasColumnName("BRASINDICE");
 
                 entity.Property(e => e.CodAmb)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("COD_AMB");
 
                 entity.Property(e => e.CodConv).HasMaxLength(20);
@@ -5055,13 +5048,13 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Codfabricante).HasColumnName("codfabricante");
 
                 entity.Property(e => e.Codigo)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("codigo");
 
                 entity.Property(e => e.Codigotabelatiss)
                     .HasMaxLength(10)
                     .HasColumnName("codigotabelatiss")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Convant).HasColumnName("CONVANT");
 
@@ -5075,7 +5068,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("DESCRI")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.DescriResumida)
                     .HasMaxLength(200)
@@ -5125,7 +5118,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.NumTiss)
                     .HasMaxLength(20)
                     .HasColumnName("num_tiss")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PrCusto)
                     .HasColumnType("numeric(14, 4)")
@@ -5194,14 +5187,14 @@ namespace MigrationMySql.Server
                 entity.HasIndex(e => e.Codproduto, "i_codproduto_mov");
 
                 entity.Property(e => e.Idmov)
-                    .HasColumnType("decimal(18, 0)")
-                    .ValueGeneratedOnAdd()
+                    .HasColumnType("float(10, 2)")
+                    
                     .HasColumnName("idmov");
 
                 entity.Property(e => e.Codigopres).HasColumnName("codigopres");
 
                 entity.Property(e => e.Coditempresc)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("coditempresc");
 
                 entity.Property(e => e.Codkit)
@@ -5232,7 +5225,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Tabelaproduto)
                     .HasMaxLength(30)
                     .HasColumnName("tabelaproduto")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Unidproduto)
                     .HasMaxLength(10)
@@ -5272,29 +5265,29 @@ namespace MigrationMySql.Server
                     .HasMaxLength(15)
                     .IsUnicode(false)
                     .HasColumnName("BAIRRO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cbos)
                     .HasMaxLength(20)
                     .HasColumnName("cbos")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cbosantigo)
                     .HasMaxLength(10)
                     .HasColumnName("cbosantigo")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cep)
                     .HasMaxLength(9)
                     .IsUnicode(false)
                     .HasColumnName("CEP")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cidade)
                     .HasMaxLength(15)
                     .IsUnicode(false)
                     .HasColumnName("CIDADE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ConsultaDia).HasColumnName("consulta_dia");
 
@@ -5302,30 +5295,30 @@ namespace MigrationMySql.Server
                     .HasMaxLength(18)
                     .IsUnicode(false)
                     .HasColumnName("CPF")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.DigitoRegProfis)
                     .HasMaxLength(3)
                     .HasColumnName("digito_reg_profis")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Endereco)
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("ENDERECO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Especialidade)
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("ESPECIALIDADE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Estado)
                     .HasMaxLength(2)
                     .IsUnicode(false)
                     .HasColumnName("ESTADO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.FlLivrocaixa).HasColumnName("fl_livrocaixa");
 
@@ -5333,12 +5326,12 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.FlagMedico)
                     .HasColumnName("flag_medico")
-                    .HasDefaultValueSql("((0))");
+                    ;
 
                 entity.Property(e => e.Grupo)
                     .HasMaxLength(1)
                     .HasColumnName("grupo")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.IdWeb).HasColumnName("id_web");
 
@@ -5346,13 +5339,13 @@ namespace MigrationMySql.Server
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("NOME")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Online)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("ONLINE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ProcDia).HasColumnName("proc_dia");
 
@@ -5368,7 +5361,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(10)
                     .IsUnicode(false)
                     .HasColumnName("REG_PROFIS")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Samed)
                     .HasColumnType("decimal(4, 0)")
@@ -5376,40 +5369,40 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Senha)
                     .HasMaxLength(50)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Sigla)
                     .HasMaxLength(50)
                     .HasColumnName("sigla")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Siglaconselho)
                     .HasMaxLength(10)
                     .HasColumnName("siglaconselho")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Telefone)
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("TELEFONE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Telefone2)
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("TELEFONE2")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tratamento)
                     .HasMaxLength(50)
                     .HasColumnName("tratamento")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.UfConselho)
                     .HasMaxLength(2)
                     .HasColumnName("UF_conselho")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.VlConsulta)
                     .HasColumnType("decimal(6, 2)")
@@ -5432,7 +5425,7 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Recnum)
                     .HasColumnType("decimal(8, 0)")
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("RECNUM");
 
                 entity.Property(e => e.Rowguid).HasColumnName("rowguid");
@@ -5441,7 +5434,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("TIPO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<ProfissionaisExtra>(entity =>
@@ -5455,7 +5448,7 @@ namespace MigrationMySql.Server
                     .IsUnicode(false)
                     .HasColumnName("ATENDE")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.C01i)
                     .HasColumnType("numeric(6, 0)")
@@ -5470,7 +5463,7 @@ namespace MigrationMySql.Server
                     .IsUnicode(false)
                     .HasColumnName("C01S")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.C02n)
                     .HasColumnType("numeric(6, 2)")
@@ -5481,7 +5474,7 @@ namespace MigrationMySql.Server
                     .IsUnicode(false)
                     .HasColumnName("C02S")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.C03i)
                     .HasColumnType("numeric(6, 0)")
@@ -5512,14 +5505,14 @@ namespace MigrationMySql.Server
                     .IsUnicode(false)
                     .HasColumnName("TIPOA")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tipoi)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("TIPOI")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Qual>(entity =>
@@ -5533,90 +5526,90 @@ namespace MigrationMySql.Server
                     .IsUnicode(false)
                     .HasColumnName("Co'digo")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.CoE29)
                     .HasMaxLength(4)
                     .IsUnicode(false)
                     .HasColumnName("Co?E29")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Col002)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Col004)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Col005AGGEr)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("Col005?,A?G??????????G?Er")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Exame)
                     .HasMaxLength(27)
                     .IsUnicode(false)
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.GEr)
                     .HasMaxLength(2)
                     .IsUnicode(false)
                     .HasColumnName("???????G?Er")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.GEr1)
                     .HasMaxLength(11)
                     .IsUnicode(false)
                     .HasColumnName("????G?Er")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Mne)
                     .HasMaxLength(4)
                     .IsUnicode(false)
                     .HasColumnName(" Mne")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.RotinaAcuAcido)
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName(" Rotina\r\n ACU ACIDO")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Receita>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.Property(e => e.Codigo).ValueGeneratedOnAdd();
+                entity.Property(e => e.Codigo);
 
                 entity.Property(e => e.Codigonet)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("codigonet");
 
                 entity.Property(e => e.Data).HasColumnType("datetime");
 
                 entity.Property(e => e.Paciente)
                     .HasMaxLength(30)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Statusnet).HasColumnName("statusnet");
 
                 entity.Property(e => e.Texto)
                     .HasMaxLength(4000)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Unidadeorigem).HasColumnName("unidadeorigem");
             });
@@ -5645,7 +5638,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Agendaunidade).HasColumnName("agendaunidade");
 
                 entity.Property(e => e.Codigonet)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("codigonet");
 
                 entity.Property(e => e.Convenio).HasColumnName("convenio");
@@ -5667,7 +5660,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Obs)
                     .HasMaxLength(200)
                     .HasColumnName("obs")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Registrop)
                     .HasColumnType("decimal(12, 0)")
@@ -5695,14 +5688,14 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Autorizacao)
                     .HasMaxLength(50)
                     .HasColumnName("autorizacao")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Carater).HasColumnName("carater");
 
                 entity.Property(e => e.Cid10)
                     .HasMaxLength(10)
                     .HasColumnName("cid10")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codigo)
                     .HasColumnType("decimal(12, 0)")
@@ -5721,7 +5714,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Dadosclinicos)
                     .HasMaxLength(100)
                     .HasColumnName("dadosclinicos")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Data0)
                     .HasColumnType("datetime")
@@ -5734,33 +5727,33 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Diariasaut)
                     .HasMaxLength(10)
                     .HasColumnName("diariasaut")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Diariassol)
                     .HasMaxLength(10)
                     .HasColumnName("diariassol")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Docinc).HasColumnName("docinc");
 
                 entity.Property(e => e.DtAut)
-                    .HasColumnType("smalldatetime")
+                    .HasColumnType("datetime")
                     .HasColumnName("dt_aut");
 
                 entity.Property(e => e.Email)
                     .HasMaxLength(100)
                     .HasColumnName("email")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Fatirdu)
                     .HasMaxLength(5)
                     .HasColumnName("fatirdu")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Fatorrh)
                     .HasMaxLength(1)
                     .HasColumnName("fatorrh")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Fatura)
                     .HasColumnType("decimal(6, 0)")
@@ -5769,13 +5762,13 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Gsang)
                     .HasMaxLength(5)
                     .HasColumnName("gsang")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Guia)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("GUIA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Hora0)
                     .HasColumnType("datetime")
@@ -5789,7 +5782,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(4)
                     .IsUnicode(false)
                     .HasColumnName("LEITO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Localatend).HasColumnName("localatend");
 
@@ -5798,7 +5791,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Medicamentos)
                     .HasMaxLength(100)
                     .HasColumnName("medicamentos")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Medico).HasColumnName("medico");
 
@@ -5815,35 +5808,35 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Nota)
                     .HasMaxLength(100)
                     .HasColumnName("nota")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Obs)
                     .HasMaxLength(500)
                     .HasColumnName("obs")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Observacao)
                     .HasMaxLength(35)
                     .IsUnicode(false)
                     .HasColumnName("OBSERVACAO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Observacoes)
                     .HasMaxLength(100)
                     .HasColumnName("observacoes")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Operador0)
                     .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("OPERADOR0")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Operador1)
                     .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("OPERADOR1")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Paciente)
                     .HasColumnType("decimal(22, 0)")
@@ -5856,7 +5849,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Posto)
                     .HasMaxLength(3)
                     .HasColumnName("posto")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Prontos).HasColumnName("prontos");
 
@@ -5864,19 +5857,19 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Registro)
                     .HasColumnType("decimal(6, 0)")
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("REGISTRO");
 
                 entity.Property(e => e.Senhaonline)
                     .HasMaxLength(30)
                     .HasColumnName("senhaonline")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Status)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("STATUS")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tipo).HasColumnName("tipo");
 
@@ -5895,7 +5888,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Unidade)
                     .HasMaxLength(3)
                     .HasColumnName("unidade")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Urgente).HasColumnName("urgente");
             });
@@ -5913,14 +5906,14 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Autorizacao)
                     .HasMaxLength(50)
                     .HasColumnName("autorizacao")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Carater).HasColumnName("carater");
 
                 entity.Property(e => e.Cid10)
                     .HasMaxLength(10)
                     .HasColumnName("cid10")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codigo)
                     .HasColumnType("decimal(12, 0)")
@@ -5939,7 +5932,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Dadosclinicos)
                     .HasMaxLength(100)
                     .HasColumnName("dadosclinicos")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Data0)
                     .HasColumnType("datetime")
@@ -5952,33 +5945,33 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Diariasaut)
                     .HasMaxLength(10)
                     .HasColumnName("diariasaut")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Diariassol)
                     .HasMaxLength(10)
                     .HasColumnName("diariassol")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Docinc).HasColumnName("docinc");
 
                 entity.Property(e => e.DtAut)
-                    .HasColumnType("smalldatetime")
+                    .HasColumnType("datetime")
                     .HasColumnName("dt_aut");
 
                 entity.Property(e => e.Email)
                     .HasMaxLength(100)
                     .HasColumnName("email")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Fatirdu)
                     .HasMaxLength(5)
                     .HasColumnName("fatirdu")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Fatorrh)
                     .HasMaxLength(1)
                     .HasColumnName("fatorrh")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Fatura)
                     .HasColumnType("decimal(6, 0)")
@@ -5987,13 +5980,13 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Gsang)
                     .HasMaxLength(5)
                     .HasColumnName("gsang")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Guia)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("GUIA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Hora0)
                     .HasColumnType("datetime")
@@ -6007,7 +6000,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(4)
                     .IsUnicode(false)
                     .HasColumnName("LEITO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Localatend).HasColumnName("localatend");
 
@@ -6016,7 +6009,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Medicamentos)
                     .HasMaxLength(100)
                     .HasColumnName("medicamentos")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Medico).HasColumnName("medico");
 
@@ -6033,35 +6026,35 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Nota)
                     .HasMaxLength(100)
                     .HasColumnName("nota")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Obs)
                     .HasMaxLength(500)
                     .HasColumnName("obs")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Observacao)
                     .HasMaxLength(35)
                     .IsUnicode(false)
                     .HasColumnName("OBSERVACAO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Observacoes)
                     .HasMaxLength(100)
                     .HasColumnName("observacoes")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Operador0)
                     .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("OPERADOR0")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Operador1)
                     .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("OPERADOR1")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Paciente)
                     .HasColumnType("decimal(22, 0)")
@@ -6074,7 +6067,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Posto)
                     .HasMaxLength(3)
                     .HasColumnName("posto")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Prontos).HasColumnName("prontos");
 
@@ -6082,19 +6075,19 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Registro)
                     .HasColumnType("decimal(6, 0)")
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("REGISTRO");
 
                 entity.Property(e => e.Senhaonline)
                     .HasMaxLength(30)
                     .HasColumnName("senhaonline")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Status)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("STATUS")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tipo).HasColumnName("tipo");
 
@@ -6113,7 +6106,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Unidade)
                     .HasMaxLength(3)
                     .HasColumnName("unidade")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Urgente).HasColumnName("urgente");
             });
@@ -6141,16 +6134,16 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Autorizacao)
                     .HasMaxLength(30)
                     .HasColumnName("autorizacao")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cid10)
                     .HasMaxLength(10)
                     .HasColumnName("cid10")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.CodigoRepasse).HasColumnName("codigo_repasse");
 
-                entity.Property(e => e.Conta).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.Conta).HasColumnType("float(10, 2)");
 
                 entity.Property(e => e.Contratado).HasColumnName("contratado");
 
@@ -6163,7 +6156,7 @@ namespace MigrationMySql.Server
                     .HasColumnName("DATA");
 
                 entity.Property(e => e.Dataok)
-                    .HasColumnType("smalldatetime")
+                    .HasColumnType("datetime")
                     .HasColumnName("dataok");
 
                 entity.Property(e => e.DtAut)
@@ -6180,12 +6173,12 @@ namespace MigrationMySql.Server
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("GUIA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Guiaprincipal)
                     .HasMaxLength(20)
                     .HasColumnName("guiaprincipal")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.HoraAtend).HasColumnType("datetime");
 
@@ -6200,7 +6193,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Obs)
                     .HasMaxLength(500)
                     .HasColumnName("obs")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Obsagenda)
                     .HasMaxLength(100)
@@ -6211,7 +6204,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("OPERADOR")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Paciente)
                     .HasColumnType("decimal(8, 0)")
@@ -6220,7 +6213,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.PkLegada)
                     .HasMaxLength(50)
                     .HasColumnName("pk_legada")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Prescricao).HasColumnName("prescricao");
 
@@ -6230,7 +6223,7 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Registro)
                     .HasColumnType("decimal(6, 0)")
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("REGISTRO");
 
                 entity.Property(e => e.Repasseprod)
@@ -6245,7 +6238,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("STATUS")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Statusnet).HasColumnName("statusnet");
 
@@ -6262,7 +6255,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Unidadetempo)
                     .HasMaxLength(2)
                     .HasColumnName("unidadetempo")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<RepasseHonor>(entity =>
@@ -6274,7 +6267,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Cobrado).HasColumnType("decimal(18, 2)");
 
                 entity.Property(e => e.Codigo)
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("codigo");
 
                 entity.Property(e => e.Fatura).HasColumnName("fatura");
@@ -6293,16 +6286,16 @@ namespace MigrationMySql.Server
                 entity.ToTable("Requisicao_Interface");
 
                 entity.Property(e => e.Data)
-                    .HasColumnType("smalldatetime")
+                    .HasColumnType("datetime")
                     .HasColumnName("data");
 
                 entity.Property(e => e.Exame)
                     .HasMaxLength(10)
                     .HasColumnName("exame")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Hora)
-                    .HasColumnType("smalldatetime")
+                    .HasColumnType("datetime")
                     .HasColumnName("hora");
 
                 entity.Property(e => e.Status).HasColumnName("status");
@@ -6315,121 +6308,121 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Cod00)
                     .HasMaxLength(11)
                     .HasColumnName("cod_00")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codgrp)
                     .HasMaxLength(4)
                     .HasColumnName("codgrp")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codigo)
                     .HasMaxLength(3)
                     .HasColumnName("codigo")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codimp)
                     .HasMaxLength(3)
                     .HasColumnName("codimp")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codlst)
                     .HasMaxLength(2)
                     .HasColumnName("codlst")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codset)
                     .HasMaxLength(2)
                     .HasColumnName("codset")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Colheita)
-                    .HasColumnType("ntext")
+                    .HasColumnType("longtext")
                     .HasColumnName("colheita")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Dd)
                     .HasMaxLength(3)
                     .HasColumnName("dd")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Exame)
                     .HasMaxLength(27)
                     .HasColumnName("exame")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Exm0)
-                    .HasColumnType("ntext")
+                    .HasColumnType("longtext")
                     .HasColumnName("exm0")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Exm1)
-                    .HasColumnType("ntext")
+                    .HasColumnType("longtext")
                     .HasColumnName("exm1")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Exm2)
-                    .HasColumnType("ntext")
+                    .HasColumnType("longtext")
                     .HasColumnName("exm2")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Fatmed00).HasColumnName("fatmed_00");
 
                 entity.Property(e => e.Fltr)
                     .HasMaxLength(45)
                     .HasColumnName("fltr")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Gab0)
-                    .HasColumnType("ntext")
+                    .HasColumnType("longtext")
                     .HasColumnName("gab0")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Gab1)
-                    .HasColumnType("ntext")
+                    .HasColumnType("longtext")
                     .HasColumnName("gab1")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Hst1)
                     .HasMaxLength(3)
                     .HasColumnName("hst1")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Hst2)
                     .HasMaxLength(3)
                     .HasColumnName("hst2")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Hst3)
                     .HasMaxLength(3)
                     .HasColumnName("hst3")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Impexm)
                     .HasMaxLength(1)
                     .HasColumnName("impexm")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Mtfilm00).HasColumnName("mtfilm_00");
 
                 entity.Property(e => e.Ordetq)
                     .HasMaxLength(3)
                     .HasColumnName("ordetq")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.OrdetqT)
                     .HasMaxLength(3)
                     .HasColumnName("ordetq_t")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Ordimp)
                     .HasMaxLength(4)
                     .HasColumnName("ordimp")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Sexo)
                     .HasMaxLength(1)
                     .HasColumnName("sexo")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Val00).HasColumnName("val_00");
             });
@@ -6445,7 +6438,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Setor1)
                     .HasMaxLength(50)
                     .HasColumnName("Setor")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<SetorExame>(entity =>
@@ -6455,20 +6448,20 @@ namespace MigrationMySql.Server
                 entity.ToTable("setor_exame");
 
                 entity.Property(e => e.Codigo)
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("codigo");
 
                 entity.Property(e => e.Nome)
                     .HasMaxLength(50)
                     .HasColumnName("nome")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Rowguid).HasColumnName("rowguid");
 
                 entity.Property(e => e.Sigla)
                     .HasMaxLength(5)
                     .HasColumnName("sigla")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Shipper>(entity =>
@@ -6478,12 +6471,12 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.CompanyName)
                     .HasMaxLength(40)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Phone)
                     .HasMaxLength(24)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Status>(entity =>
@@ -6500,13 +6493,13 @@ namespace MigrationMySql.Server
                     .HasMaxLength(255)
                     .IsUnicode(false)
                     .HasColumnName("descricao")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Interno)
                     .HasMaxLength(255)
                     .IsUnicode(false)
                     .HasColumnName("interno")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Rowguid).HasColumnName("rowguid");
 
@@ -6514,7 +6507,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(255)
                     .IsUnicode(false)
                     .HasColumnName("tipo")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<StatusFatura>(entity =>
@@ -6524,12 +6517,12 @@ namespace MigrationMySql.Server
                 entity.ToTable("Status_Fatura");
 
                 entity.Property(e => e.Codigo)
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("codigo");
 
                 entity.Property(e => e.Descricao)
                     .HasMaxLength(50)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Statuscarteira>(entity =>
@@ -6552,56 +6545,56 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Address)
                     .HasMaxLength(60)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.City)
                     .HasMaxLength(15)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.CompanyName)
                     .HasMaxLength(40)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ContactName)
                     .HasMaxLength(30)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ContactTitle)
                     .HasMaxLength(30)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Country)
                     .HasMaxLength(15)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Fax)
                     .HasMaxLength(24)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.HomePage)
                     .HasColumnType("text")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Phone)
                     .HasMaxLength(24)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PostalCode)
                     .HasMaxLength(10)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Region)
                     .HasMaxLength(15)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<TabGolden>(entity =>
@@ -6614,29 +6607,29 @@ namespace MigrationMySql.Server
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("cnpj")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.CodAutor)
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("cod_autor")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Conta)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("conta");
 
                 entity.Property(e => e.Controle)
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("controle")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Natureza)
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("natureza")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tipo).HasColumnName("tipo");
 
@@ -6644,7 +6637,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("urgencia")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<TabHap>(entity =>
@@ -6655,11 +6648,11 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Conta)
                     .HasMaxLength(30)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Senha)
                     .HasMaxLength(30)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<TabUnimed>(entity =>
@@ -6669,7 +6662,7 @@ namespace MigrationMySql.Server
                 entity.ToTable("Tab_Unimed");
 
                 entity.Property(e => e.Conta)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("conta");
 
                 entity.Property(e => e.Crm)
@@ -6680,19 +6673,19 @@ namespace MigrationMySql.Server
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("guia")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Matricula)
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("matricula")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Rg)
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("rg")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Tablac>(entity =>
@@ -6705,66 +6698,66 @@ namespace MigrationMySql.Server
                     .HasMaxLength(11)
                     .IsUnicode(false)
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Col002)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Col004)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Exame)
                     .HasMaxLength(27)
                     .IsUnicode(false)
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Honorarios)
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Resto1)
                     .HasMaxLength(2)
                     .IsUnicode(false)
                     .HasColumnName("resto1")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Resto2)
                     .HasMaxLength(11)
                     .IsUnicode(false)
                     .HasColumnName("resto2")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Resto3)
                     .HasMaxLength(4)
                     .IsUnicode(false)
                     .HasColumnName("resto3")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.RotinaAcuAcido)
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName(" Rotina\r\n ACU ACIDO")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Sigla)
                     .HasMaxLength(4)
                     .IsUnicode(false)
                     .HasColumnName("sigla")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<TbAnamnese>(entity =>
@@ -6774,46 +6767,46 @@ namespace MigrationMySql.Server
                 entity.ToTable("tbAnamnese");
 
                 entity.Property(e => e.Antfamil)
-                    .HasMaxLength(4000)
+                    .HasColumnType("text")
                     .IsUnicode(false)
                     .HasColumnName("antfamil");
 
                 entity.Property(e => e.Antpess)
-                    .HasMaxLength(4000)
+                    .HasColumnType("text")
                     .IsUnicode(false)
                     .HasColumnName("antpess");
 
                 entity.Property(e => e.Codanamnese)
-                    .HasColumnType("decimal(18, 0)")
-                    .ValueGeneratedOnAdd()
+                    .HasColumnType("float(10, 2)")
+
                     .HasColumnName("codanamnese");
 
                 entity.Property(e => e.Codpaciente)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("codpaciente");
 
                 entity.Property(e => e.Conduta)
-                    .HasMaxLength(4000)
+                    .HasColumnType("text")
                     .IsUnicode(false)
                     .HasColumnName("conduta");
 
                 entity.Property(e => e.Estadiam)
-                    .HasMaxLength(4000)
+                    .HasColumnType("text")
                     .IsUnicode(false)
                     .HasColumnName("estadiam");
 
                 entity.Property(e => e.Hipotdiag)
-                    .HasMaxLength(4000)
+                    .HasColumnType("text")
                     .IsUnicode(false)
                     .HasColumnName("hipotdiag");
 
                 entity.Property(e => e.Histatual)
-                    .HasMaxLength(4000)
+                    .HasColumnType("text")
                     .IsUnicode(false)
                     .HasColumnName("histatual");
 
                 entity.Property(e => e.Identanam)
-                    .HasMaxLength(4000)
+                    .HasColumnType("text")
                     .IsUnicode(false)
                     .HasColumnName("identanam");
             });
@@ -6829,51 +6822,51 @@ namespace MigrationMySql.Server
                     .HasMaxLength(16)
                     .IsUnicode(false)
                     .HasColumnName("CD_PACIENTE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.NrAtendimento)
                     .HasMaxLength(12)
                     .IsUnicode(false)
                     .HasColumnName("NR_ATENDIMENTO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.CdModoEvento)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("CD_MODO_EVENTO")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.CdMotivoSaida)
                     .HasMaxLength(2)
                     .IsUnicode(false)
                     .HasColumnName("CD_MOTIVO_SAIDA")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.CdOperadora)
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("CD_OPERADORA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.CdPadraoAcomodacao)
                     .HasMaxLength(12)
                     .IsUnicode(false)
                     .HasColumnName("CD_PADRAO_ACOMODACAO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.CdPlano)
                     .HasMaxLength(12)
                     .IsUnicode(false)
                     .HasColumnName("CD_PLANO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.DsSituacaoClinica)
                     .HasMaxLength(255)
                     .IsUnicode(false)
                     .HasColumnName("DS_SITUACAO_CLINICA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.DtFimAtendimento)
                     .HasColumnType("datetime")
@@ -6896,87 +6889,87 @@ namespace MigrationMySql.Server
                     .IsUnicode(false)
                     .HasColumnName("IN_ACIDENTE")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.InCaraterAtendimento)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("IN_CARATER_ATENDIMENTO")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.InCaraterInternado)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("IN_CARATER_INTERNADO")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.InCidNotificavel)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("IN_CID_NOTIFICAVEL")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.InFinalizado)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("IN_FINALIZADO")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.InTipoDoenca)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("IN_TIPO_DOENCA")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.InTipoInternacao)
                     .HasMaxLength(2)
                     .IsUnicode(false)
                     .HasColumnName("IN_TIPO_INTERNACAO")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.NrCartaoSaude)
                     .HasMaxLength(15)
                     .IsUnicode(false)
                     .HasColumnName("NR_CARTAO_SAUDE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.NrCidObito)
                     .HasMaxLength(10)
                     .IsUnicode(false)
                     .HasColumnName("NR_CID_OBITO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.NrContratoOperadora)
                     .HasMaxLength(12)
                     .IsUnicode(false)
                     .HasColumnName("NR_CONTRATO_OPERADORA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.NrDeclaracaoObito)
                     .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("NR_DECLARACAO_OBITO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.NrTempoEvolucaoDoenca)
                     .HasMaxLength(2)
                     .IsUnicode(false)
                     .HasColumnName("NR_TEMPO_EVOLUCAO_DOENCA")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.UnTempoEvolucaoDoenca)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("UN_TEMPO_EVOLUCAO_DOENCA")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<TbConsultaProfCon>(entity =>
@@ -7007,7 +7000,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(40)
                     .HasColumnName("cod_ext")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.CodigoProf).HasColumnName("codigo_prof");
 
@@ -7071,7 +7064,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Origem).HasColumnName("origem");
 
                 entity.Property(e => e.Paciente)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("paciente");
 
                 entity.Property(e => e.Prescricao).HasColumnName("prescricao");
@@ -7146,14 +7139,14 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.FlExecutado)
                     .HasColumnName("fl_executado")
-                    .HasDefaultValueSql("((0))");
+                    ;
 
                 entity.Property(e => e.FlagBaixa).HasColumnName("flag_baixa");
 
                 entity.Property(e => e.IdMovimento).HasColumnName("idMovimento");
 
                 entity.Property(e => e.IdProdMov)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("idProdMov");
 
                 entity.Property(e => e.IdProduto).HasColumnName("idProduto");
@@ -7513,7 +7506,7 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.DescAplicacao)
                     .HasMaxLength(200)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.DtAplicacao).HasColumnType("datetime");
 
@@ -7522,15 +7515,15 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Hdaaplicacao)
                     .HasMaxLength(4000)
                     .HasColumnName("HDAAplicacao")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.IdaplicaPlanTerap)
-                    .HasColumnType("decimal(18, 0)")
-                    .ValueGeneratedOnAdd()
+                    .HasColumnType("float(10, 2)")
+                    
                     .HasColumnName("IDAplicaPlanTerap");
 
                 entity.Property(e => e.IdplanTerap)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("IDPlanTerap");
 
                 entity.Property(e => e.PesoAplica).HasColumnType("decimal(18, 2)");
@@ -7538,7 +7531,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Sequencia)
                     .HasMaxLength(10)
                     .HasColumnName("sequencia")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<TbaplicaPlanTerapIten>(entity =>
@@ -7548,16 +7541,16 @@ namespace MigrationMySql.Server
                 entity.ToTable("TBAplicaPlanTerapItens");
 
                 entity.Property(e => e.Codproduto)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("codproduto");
 
                 entity.Property(e => e.IdaplicaPlanTerap)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("IDAplicaPlanTerap");
 
                 entity.Property(e => e.IdaplicaPlanTerapItens)
-                    .HasColumnType("decimal(18, 0)")
-                    .ValueGeneratedOnAdd()
+                    .HasColumnType("float(10, 2)")
+                    
                     .HasColumnName("IDAPlicaPlanTerapItens");
 
                 entity.Property(e => e.Qtddose).HasColumnName("qtddose");
@@ -7570,11 +7563,11 @@ namespace MigrationMySql.Server
                     .HasMaxLength(10)
                     .IsUnicode(false)
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.UnidadeDose)
                     .HasMaxLength(50)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Tbdocspaciente>(entity =>
@@ -7588,7 +7581,7 @@ namespace MigrationMySql.Server
                     .HasColumnName("arqdoc");
 
                 entity.Property(e => e.Coddoc)
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("coddoc");
 
                 entity.Property(e => e.Codpaciente).HasColumnName("codpaciente");
@@ -7599,7 +7592,7 @@ namespace MigrationMySql.Server
                     .HasColumnName("descricao");
 
                 entity.Property(e => e.Dtdoc)
-                    .HasColumnType("smalldatetime")
+                    .HasColumnType("datetime")
                     .HasColumnName("dtdoc");
 
                 entity.Property(e => e.Tipomodelo).HasColumnName("tipomodelo");
@@ -7622,21 +7615,21 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Cdprdcon)
                     .HasMaxLength(8)
                     .HasColumnName("CDPRDCON")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cod)
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("COD");
 
                 entity.Property(e => e.Descesp)
                     .HasMaxLength(60)
                     .HasColumnName("DESCESP")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Nmesp)
                     .HasMaxLength(51)
                     .HasColumnName("NMESP")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Tbitemprescricao>(entity =>
@@ -7654,7 +7647,7 @@ namespace MigrationMySql.Server
                 entity.HasIndex(e => e.Produto, "ipp_prodprescr");
 
                 entity.Property(e => e.Codigo)
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("codigo");
 
                 entity.Property(e => e.Codigopres).HasColumnName("codigopres");
@@ -7663,7 +7656,7 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Obs)
                     .HasMaxLength(500)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Proddilu).HasColumnName("proddilu");
 
@@ -7704,12 +7697,12 @@ namespace MigrationMySql.Server
                     .HasMaxLength(500)
                     .IsUnicode(false)
                     .HasColumnName("historico")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Idfornecedor).HasColumnName("idfornecedor");
 
                 entity.Property(e => e.Idmov)
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("idmov");
 
                 entity.Property(e => e.Tipomov).HasColumnName("tipomov");
@@ -7730,11 +7723,11 @@ namespace MigrationMySql.Server
                     .HasColumnName("arqmodelo");
 
                 entity.Property(e => e.Codmodelo)
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("codmodelo");
 
                 entity.Property(e => e.Conteudomodelo)
-                    .HasColumnType("ntext")
+                    .HasColumnType("longtext")
                     .HasColumnName("conteudomodelo");
 
                 entity.Property(e => e.Descmodelo)
@@ -7743,7 +7736,7 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Temp)
                     .HasColumnName("temp")
-                    .HasDefaultValueSql("((0))");
+                    ;
             });
 
             modelBuilder.Entity<TbplanTerap>(entity =>
@@ -7755,10 +7748,10 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Cid)
                     .HasMaxLength(10)
                     .HasColumnName("cid")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codpaciente)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("codpaciente");
 
                 entity.Property(e => e.Codprofissional).HasColumnName("codprofissional");
@@ -7766,31 +7759,31 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Convenio)
                     .HasMaxLength(40)
                     .HasColumnName("convenio")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.DescPlanTerap)
                     .HasMaxLength(400)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.DtCriaPlan)
                     .HasMaxLength(10)
                     .IsUnicode(false)
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.HdaplanTerap)
-                    .HasColumnType("ntext")
+                    .HasColumnType("longtext")
                     .HasColumnName("HDAPlanTerap")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Histclin)
                     .HasMaxLength(500)
                     .HasColumnName("histclin")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.IdplanTerap)
-                    .HasColumnType("decimal(18, 0)")
-                    .ValueGeneratedOnAdd()
+                    .HasColumnType("float(10, 2)")
+                    
                     .HasColumnName("IDPlanTerap");
             });
 
@@ -7823,22 +7816,22 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.CodExt)
                     .HasMaxLength(20)
                     .HasColumnName("COD_EXT")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.CodRelacionado)
                     .HasMaxLength(20)
                     .HasColumnName("cod_relacionado")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codigo)
                     .HasColumnType("numeric(18, 0)")
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("codigo");
 
                 entity.Property(e => e.Codigotabelatiss)
                     .HasMaxLength(5)
                     .HasColumnName("codigotabelatiss")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codtipoato).HasColumnName("codtipoato");
 
@@ -7846,26 +7839,26 @@ namespace MigrationMySql.Server
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("DESCRI1")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Descri2)
                     .HasMaxLength(40)
                     .IsUnicode(false)
                     .HasColumnName("DESCRI2")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Descri3)
                     .HasMaxLength(40)
                     .IsUnicode(false)
                     .HasColumnName("DESCRI3")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Dias).HasColumnName("dias");
 
                 entity.Property(e => e.Exafatu)
                     .HasMaxLength(100)
                     .HasColumnName("exafatu")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Fatorqtd2)
                     .HasColumnType("decimal(4, 2)")
@@ -7878,7 +7871,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.FlTextocomp)
                     .HasMaxLength(100)
                     .HasColumnName("fl_textocomp")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Honorarios)
                     .HasColumnType("numeric(14, 2)")
@@ -7890,7 +7883,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("INDICE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Laudo)
                     .HasColumnType("numeric(4, 0)")
@@ -7899,17 +7892,17 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Material)
                     .HasMaxLength(300)
                     .HasColumnName("material")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Obc)
                     .HasMaxLength(100)
                     .HasColumnName("obc")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Obs)
                     .HasMaxLength(100)
                     .HasColumnName("obs")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Operacional)
                     .HasColumnType("numeric(14, 2)")
@@ -7918,7 +7911,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Preparo)
                     .HasMaxLength(300)
                     .HasColumnName("preparo")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Recnum)
                     .HasColumnType("numeric(8, 0)")
@@ -7931,13 +7924,13 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Sinonimia)
                     .HasMaxLength(300)
                     .HasColumnName("sinonimia")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tabela)
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("TABELA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Urgencia).HasColumnName("urgencia");
 
@@ -7970,7 +7963,7 @@ namespace MigrationMySql.Server
                     .HasColumnName("dtagenda");
 
                 entity.Property(e => e.Idprofdia)
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("idprofdia");
 
                 entity.Property(e => e.Intervalo).HasColumnName("intervalo");
@@ -7999,12 +7992,12 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Medico)
                     .HasMaxLength(255)
                     .HasColumnName("MEDICO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Sigla)
                     .HasMaxLength(255)
                     .HasColumnName("SIGLA")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Tbsemrepasse>(entity =>
@@ -8039,16 +8032,16 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Codprof).HasColumnName("codprof");
 
                 entity.Property(e => e.Idtexto)
-                    .HasColumnType("decimal(18, 0)")
-                    .ValueGeneratedOnAdd()
+                    .HasColumnType("float(10, 2)")
+                    
                     .HasColumnName("idtexto");
 
                 entity.Property(e => e.Nrrepcontagem)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("nrrepcontagem");
 
                 entity.Property(e => e.Nrrepet)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("nrrepet");
 
                 entity.Property(e => e.Textocomum)
@@ -8066,7 +8059,7 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Descricao)
                     .HasMaxLength(50)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<TipoAto>(entity =>
@@ -8082,7 +8075,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Codigo)
                     .HasMaxLength(50)
                     .HasColumnName("CODIGO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codtiss)
                     .HasMaxLength(2)
@@ -8092,16 +8085,16 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Descri)
                     .HasMaxLength(40)
                     .HasColumnName("DESCRI")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Fator)
                     .HasMaxLength(50)
                     .HasColumnName("FATOR")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Recnum)
                     .HasColumnType("decimal(8, 0)")
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("RECNUM");
             });
 
@@ -8111,7 +8104,7 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.DescTipoAtend)
                     .HasMaxLength(50)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Trace>(entity =>
@@ -8122,45 +8115,45 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.ApplicationName)
                     .HasMaxLength(128)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ClientProcessId)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("ClientProcessID");
 
                 entity.Property(e => e.Cpu)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("CPU");
 
-                entity.Property(e => e.Duration).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.Duration).HasColumnType("float(10, 2)");
 
-                entity.Property(e => e.EventClass).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.EventClass).HasColumnType("float(10, 2)");
 
                 entity.Property(e => e.NtuserName)
                     .HasMaxLength(128)
                     .HasColumnName("NTUserName")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Reads).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.Reads).HasColumnType("float(10, 2)");
 
-                entity.Property(e => e.RowNumber).ValueGeneratedOnAdd();
+                entity.Property(e => e.RowNumber);
 
                 entity.Property(e => e.Spid)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("SPID");
 
                 entity.Property(e => e.SqluserName)
                     .HasMaxLength(128)
                     .HasColumnName("SQLUserName")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.StartTime).HasColumnType("datetime");
 
                 entity.Property(e => e.TextData)
-                    .HasColumnType("ntext")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .HasColumnType("longtext")
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Writes).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.Writes).HasColumnType("float(10, 2)");
             });
 
             modelBuilder.Entity<Unidade>(entity =>
@@ -8188,22 +8181,22 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Caminhoxml)
                     .HasMaxLength(255)
                     .HasColumnName("caminhoxml")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cidade)
                     .HasMaxLength(100)
                     .HasColumnName("cidade")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cidpadrao)
                     .HasMaxLength(10)
                     .HasColumnName("cidpadrao")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cnpj)
                     .HasMaxLength(20)
                     .HasColumnName("CNPJ")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.CodigoFinanceiro).HasColumnName("codigoFinanceiro");
 
@@ -8213,12 +8206,12 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Endereco)
                     .HasMaxLength(100)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Endnet)
                     .HasMaxLength(400)
                     .HasColumnName("endnet")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.FlEnviasms).HasColumnName("fl_enviasms");
 
@@ -8232,20 +8225,20 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Ip)
                     .HasMaxLength(30)
                     .HasColumnName("IP")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Local).HasColumnName("local");
 
                 entity.Property(e => e.Logonet)
                     .HasMaxLength(300)
                     .HasColumnName("logonet")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Nivel).HasColumnName("nivel");
 
                 entity.Property(e => e.Nome)
                     .HasMaxLength(50)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PassFinanceiro)
                     .HasMaxLength(50)
@@ -8254,7 +8247,7 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.RazaoSocial)
                     .HasMaxLength(100)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.ServerFinanceiro)
                     .HasMaxLength(50)
@@ -8281,14 +8274,14 @@ namespace MigrationMySql.Server
 
                 entity.Property(e => e.Codigo)
                     .HasColumnType("decimal(4, 0)")
-                    .ValueGeneratedOnAdd()
+                    
                     .HasColumnName("CODIGO");
 
                 entity.Property(e => e.Descri)
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("DESCRI")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Setor)
                     .HasColumnType("decimal(4, 0)")
@@ -8305,20 +8298,20 @@ namespace MigrationMySql.Server
                     .HasColumnType("numeric(4, 0)")
                     .HasColumnName("codconv");
 
-                entity.Property(e => e.CodigoP).HasColumnType("decimal(18, 0)");
+                entity.Property(e => e.CodigoP).HasColumnType("float(10, 2)");
 
                 entity.Property(e => e.Convenio)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("convenio")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Data).HasColumnType("datetime");
 
                 entity.Property(e => e.Dtnasc)
                     .HasMaxLength(20)
                     .HasColumnName("DTNASC")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Enviousms).HasColumnName("enviousms");
 
@@ -8335,24 +8328,24 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Nome)
                     .HasMaxLength(100)
                     .HasColumnName("NOME")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Nomeprof)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("nomeprof")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Obs)
                     .HasMaxLength(200)
                     .HasColumnName("obs")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Sexo)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("SEXO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Statusnet).HasColumnName("statusnet");
 
@@ -8360,16 +8353,16 @@ namespace MigrationMySql.Server
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("TELEFONE")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Telefone2)
                     .HasMaxLength(30)
                     .HasColumnName("telefone2")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tipo)
                     .HasMaxLength(50)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tipoatend).HasColumnName("tipoatend");
             });
@@ -8383,14 +8376,14 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Autorizacao)
                     .HasMaxLength(30)
                     .HasColumnName("autorizacao")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codconv)
                     .HasColumnType("numeric(4, 0)")
                     .HasColumnName("codconv");
 
                 entity.Property(e => e.Codigop)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("codigop");
 
                 entity.Property(e => e.Codmedsolici).HasColumnName("codmedsolici");
@@ -8398,17 +8391,17 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.ConsProfSolici)
                     .HasMaxLength(10)
                     .HasColumnName("cons_prof_solici")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Conta)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("conta");
 
                 entity.Property(e => e.Cpf)
                     .HasMaxLength(18)
                     .IsUnicode(false)
                     .HasColumnName("cpf")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Data)
                     .HasColumnType("datetime")
@@ -8426,41 +8419,41 @@ namespace MigrationMySql.Server
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("guia")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Guiaprincipal)
                     .HasMaxLength(20)
                     .HasColumnName("guiaprincipal")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Matricula)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("matricula")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Medsolici)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("medsolici")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Nomeconv)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("nomeconv")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Paciente)
                     .HasMaxLength(100)
                     .HasColumnName("paciente")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.RegProfisSolici)
                     .HasMaxLength(10)
                     .IsUnicode(false)
                     .HasColumnName("reg_profis_solici")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Registro)
                     .HasColumnType("decimal(6, 0)")
@@ -8469,12 +8462,12 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Sigla)
                     .HasMaxLength(50)
                     .HasColumnName("sigla")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Siglamed)
                     .HasMaxLength(50)
                     .HasColumnName("siglamed")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.TipoAtend).HasColumnName("tipo_atend");
 
@@ -8482,7 +8475,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(2)
                     .HasColumnName("uf_conselho_solici")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<VwContaProcNaoRealizado>(entity =>
@@ -8496,7 +8489,7 @@ namespace MigrationMySql.Server
                     .HasColumnName("paciente");
 
                 entity.Property(e => e.Prontuario)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("prontuario");
             });
 
@@ -8509,12 +8502,12 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Autorizacao)
                     .HasMaxLength(30)
                     .HasColumnName("autorizacao")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Cid10)
                     .HasMaxLength(10)
                     .HasColumnName("cid10")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Codconv)
                     .HasColumnType("decimal(4, 0)")
@@ -8523,7 +8516,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Codmedico).HasColumnName("codmedico");
 
                 entity.Property(e => e.Conta)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("conta");
 
                 entity.Property(e => e.Contratado).HasColumnName("contratado");
@@ -8532,7 +8525,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("convenio")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Data)
                     .HasColumnType("datetime")
@@ -8541,7 +8534,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Descatend)
                     .HasMaxLength(50)
                     .HasColumnName("descatend")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.DtAut)
                     .HasColumnType("datetime")
@@ -8555,12 +8548,12 @@ namespace MigrationMySql.Server
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("guia")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Guiaprincipal)
                     .HasMaxLength(20)
                     .HasColumnName("guiaprincipal")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Horaatend)
                     .HasColumnType("datetime")
@@ -8574,7 +8567,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("matricula")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Medcobra)
                     .HasColumnType("decimal(4, 0)")
@@ -8584,18 +8577,18 @@ namespace MigrationMySql.Server
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("medico")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Obs)
                     .HasMaxLength(500)
                     .HasColumnName("obs")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Operador)
                     .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("operador")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Paciente)
                     .HasColumnType("decimal(8, 0)")
@@ -8609,7 +8602,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("status")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.TipoAtend).HasColumnName("tipo_atend");
 
@@ -8635,10 +8628,10 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Codtiss)
                     .HasMaxLength(20)
                     .HasColumnName("codtiss")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Conta)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("conta");
 
                 entity.Property(e => e.Custounitario)
@@ -8653,7 +8646,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(403)
                     .IsUnicode(false)
                     .HasColumnName("descricao")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Divisor)
                     .HasColumnType("numeric(6, 0)")
@@ -8671,7 +8664,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("profissional")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Qtd).HasColumnName("qtd");
 
@@ -8683,14 +8676,14 @@ namespace MigrationMySql.Server
                     .HasMaxLength(10)
                     .IsUnicode(false)
                     .HasColumnName("reg_profis")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Registro).HasColumnName("registro");
 
                 entity.Property(e => e.Siglaconselho)
                     .HasMaxLength(10)
                     .HasColumnName("siglaconselho")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tipo)
                     .HasColumnType("decimal(4, 0)")
@@ -8701,7 +8694,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.UfConselho)
                     .HasMaxLength(2)
                     .HasColumnName("uf_conselho")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Vltotal).HasColumnName("vltotal");
 
@@ -8717,12 +8710,12 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Descri)
                     .HasMaxLength(200)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Descricao)
                     .HasMaxLength(100)
                     .HasColumnName("descricao")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Iditem)
                     .HasColumnType("decimal(12, 0)")
@@ -8761,7 +8754,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Codident).HasColumnName("codident");
 
                 entity.Property(e => e.Conta)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("conta");
 
                 entity.Property(e => e.Custounitario)
@@ -8772,7 +8765,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(403)
                     .IsUnicode(false)
                     .HasColumnName("descri")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Divisor)
                     .HasColumnType("numeric(6, 0)")
@@ -8795,7 +8788,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.NumTiss)
                     .HasMaxLength(20)
                     .HasColumnName("num_tiss")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PrCusto)
                     .HasColumnType("numeric(14, 4)")
@@ -8841,24 +8834,24 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Dtnasc)
                     .HasMaxLength(20)
                     .HasColumnName("DTNASC")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.IdWeb).HasColumnName("id_web");
 
                 entity.Property(e => e.Nome)
                     .HasMaxLength(100)
                     .HasColumnName("NOME")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.NomeProf)
                     .HasMaxLength(50)
                     .IsUnicode(false)
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Obs)
                     .HasMaxLength(100)
                     .HasColumnName("obs")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Presfinalizada).HasColumnName("presfinalizada");
 
@@ -8871,24 +8864,24 @@ namespace MigrationMySql.Server
                     .HasMaxLength(10)
                     .IsUnicode(false)
                     .HasColumnName("REG_PROFIS")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Sexo)
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .HasColumnName("SEXO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Siglaconselho)
                     .HasMaxLength(10)
                     .HasColumnName("siglaconselho")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.UfConselho)
                     .HasMaxLength(2)
                     .HasColumnName("UF_conselho")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<VwProcAmbMestreIten>(entity =>
@@ -8932,7 +8925,7 @@ namespace MigrationMySql.Server
                     .HasColumnName("profissional");
 
                 entity.Property(e => e.Prontuario)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("prontuario");
 
                 entity.Property(e => e.Qtd)
@@ -8940,17 +8933,17 @@ namespace MigrationMySql.Server
                     .HasColumnName("qtd");
 
                 entity.Property(e => e.Reducaoacrescimo)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("reducaoacrescimo");
 
                 entity.Property(e => e.Registrop)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("registrop");
 
                 entity.Property(e => e.Tabela)
                     .HasMaxLength(30)
                     .HasColumnName("tabela")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tecnica).HasColumnName("tecnica");
 
@@ -8984,7 +8977,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.CodExt)
                     .HasMaxLength(20)
                     .HasColumnName("cod_ext")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Contratado).HasColumnName("contratado");
 
@@ -8992,7 +8985,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("convenio")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Conveniopi)
                     .HasColumnType("decimal(4, 0)")
@@ -9005,25 +8998,25 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Descato)
                     .HasMaxLength(40)
                     .HasColumnName("descato")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Descri)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("descri")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Descricao)
                     .HasMaxLength(282)
                     .IsUnicode(false)
                     .HasColumnName("descricao")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Especialidade)
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("especialidade")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.FlSit).HasColumnName("fl_sit");
 
@@ -9041,7 +9034,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("medico")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Procedimento)
                     .HasColumnType("decimal(6, 0)")
@@ -9052,7 +9045,7 @@ namespace MigrationMySql.Server
                     .HasColumnName("profissional");
 
                 entity.Property(e => e.Prontuario)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("prontuario");
 
                 entity.Property(e => e.Qtd)
@@ -9063,30 +9056,30 @@ namespace MigrationMySql.Server
                     .HasMaxLength(10)
                     .IsUnicode(false)
                     .HasColumnName("reg_profis")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Registrop)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("registrop");
 
                 entity.Property(e => e.Registropi)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("registropi");
 
                 entity.Property(e => e.Registropm)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("registropm");
 
                 entity.Property(e => e.Siglaconselho)
                     .HasMaxLength(10)
                     .HasColumnName("siglaconselho")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tabela)
                     .HasMaxLength(30)
                     .IsUnicode(false)
                     .HasColumnName("tabela")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tecnica).HasColumnName("tecnica");
 
@@ -9106,7 +9099,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(2)
                     .HasColumnName("uf_conselho")
                     .IsFixedLength()
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Via).HasColumnName("via");
 
@@ -9134,10 +9127,10 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Codtiss)
                     .HasMaxLength(20)
                     .HasColumnName("codtiss")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Conta)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("conta");
 
                 entity.Property(e => e.Custototal)
@@ -9156,7 +9149,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(403)
                     .IsUnicode(false)
                     .HasColumnName("descricao")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Dtdeta)
                     .HasColumnType("datetime")
@@ -9176,34 +9169,34 @@ namespace MigrationMySql.Server
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("medsolici")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Medsolici2)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("medsolici2")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Mesref)
                     .HasMaxLength(5)
                     .HasColumnName("mesref")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Nf)
                     .HasMaxLength(50)
                     .HasColumnName("nf")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Nomeconv)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("nomeconv")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Paciente)
                     .HasMaxLength(100)
                     .HasColumnName("paciente")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PrCusto)
                     .HasColumnType("decimal(25, 9)")
@@ -9217,7 +9210,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("profissional")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Qtd).HasColumnName("qtd");
 
@@ -9232,7 +9225,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Siglamed)
                     .HasMaxLength(50)
                     .HasColumnName("siglamed")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.StatusFatura).HasColumnName("status_fatura");
 
@@ -9268,7 +9261,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Codtiss)
                     .HasMaxLength(20)
                     .HasColumnName("codtiss")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Conta)
                     .HasColumnType("decimal(22, 0)")
@@ -9286,7 +9279,7 @@ namespace MigrationMySql.Server
                     .HasMaxLength(280)
                     .IsUnicode(false)
                     .HasColumnName("descricao")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Dtdeta)
                     .HasColumnType("datetime")
@@ -9306,28 +9299,28 @@ namespace MigrationMySql.Server
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("medsolici")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Mesref)
                     .HasMaxLength(5)
                     .HasColumnName("mesref")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Nf)
                     .HasMaxLength(50)
                     .HasColumnName("nf")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Nomeconv)
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("nomeconv")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Paciente)
                     .HasMaxLength(100)
                     .HasColumnName("paciente")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.PrCusto).HasColumnName("pr_custo");
 
@@ -9357,7 +9350,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Siglamed)
                     .HasMaxLength(50)
                     .HasColumnName("siglamed")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Tipo)
                     .HasColumnType("decimal(2, 0)")
@@ -9392,13 +9385,13 @@ namespace MigrationMySql.Server
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("APRESENTACAO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Descri)
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("DESCRI")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.IdPrescricao).HasColumnName("idPrescricao");
 
@@ -9425,13 +9418,13 @@ namespace MigrationMySql.Server
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("APRESENTACAO")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Descri)
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("DESCRI")
-                    .UseCollation("SQL_Latin1_General_CP1_CI_AI");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.IdPrescricao).HasColumnName("idPrescricao");
 
@@ -9455,7 +9448,7 @@ namespace MigrationMySql.Server
                 entity.Property(e => e.Convenio).HasColumnName("convenio");
 
                 entity.Property(e => e.Paciente)
-                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnType("float(10, 2)")
                     .HasColumnName("paciente");
             });
 

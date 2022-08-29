@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using MigrationMySql.Server.Data;
 
 namespace MigrationMySql.Server
@@ -14,6 +16,8 @@ namespace MigrationMySql.Server
             builder.Services.AddRazorPages();
             builder.Services.AddServerSideBlazor();
             builder.Services.AddSingleton<WeatherForecastService>();
+
+            builder.Services.AddDbContext<netdoctorContext>(opts => opts.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"), new MySqlServerVersion(new Version(8, 0, 3))));
 
             var app = builder.Build();
 
